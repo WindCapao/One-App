@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OneApp</title>
+  <style>
+    /* Set the background color */
+    body {
+      background-color: #F9D6D6;  /* Light pink */
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100%;
+    }
+
+    /* Fullscreen video container */
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;  /* Full viewport height */
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    /* Fullscreen video */
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;  /* Ensure video covers the screen */
+    }
+
+    /* Hide default video controls */
+    video::-webkit-media-controls {
+      display: none !important;
+    }
+    video::-moz-media-controls {
+      display: none !important;
+    }
+    video::-ms-media-controls {
+      display: none !important;
+    }
+
+    /* Center video and custom button */
+    .pause-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 24px;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="video-container">
+    <video id="video" autoplay muted disablePictureInPicture>
+      <source src="../intro/vid/intro.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <script>
+    const video = document.getElementById('video');
+    const pauseButton = document.getElementById('pauseButton');
+
+    // Show the pause button when the video starts playing
+    video.addEventListener('playing', () => {
+      pauseButton.style.display = 'block';
+    });
+
+    // Redirect when the video ends (without loop)
+    video.addEventListener('ended', () => {
+      window.location.href = '../main/index.html';  // Change this to the page you want to redirect to
+    });
+  </script>
+
+</body>
+</html>

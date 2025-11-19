@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <a href="../main/index.html">
+                <img src="images/oneapp-logo.png" alt="OneApp Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="../To-do-list/to-do-list.html" class="todo-link">
+                <img src="images/todo-icon.png" alt="To-Do Icon" class="todo-icon">
+            </a>
+            <a href="../flashcards/flashcards.html" class="flashcards-link">
+                <img src="images/flashcards-icon.png" alt="Flashcards Icon" class="flashcards-icon">
+            </a>
+            <a href="../NoteApp/displayNotes.html" class="NoteApp-link"> 
+                <img src="images/Note App logo.png" alt="NoteApp Icon" class="NoteApp-icon">
+            </a>
+            <a href="../stopwatch/stopwatch.html" class="stopwatch-link">
+                <img src="images/Clock APP logo.png" alt="stopwatch Icon" class="stopwatch-icon">
+            </a>
+            <a href="../about-page/about-page.html" class="about-link">
+                <img src="images/about-icon.png" alt="About Icon" class="about-icon">
+            </a>
+        </nav>
+          <!-- Profile link inside the navigation -->
+          <a href="../profile/profile.html" class="profile-link">
+            <div class="profile-pic-div">
+                <img src="images/logo.png" id="photo" alt="Profile Picture">
+            </div>
+            <p id="NAME">Test name</p>
+            <p id="id">ID:</p>
+        </a>
+
+        <img src="images/logo.png" alt="Toggle Sidebar" id="toggle-btn" class="toggle-btn"> 
+    </div>
+
+    <div class="main-profile">
+        <h1>PROFILE</h1>
+        <h2 id="main-id">ID:</h2>
+        <img src="images/logo.png" id="template"> 
+    </div>
+
+    <div class="profile">
+        <img src="images/logo.png" id="pic">
+        <input type="file" id="file">
+        <label for="file" id="upload">Choose Photo</label>
+    </div>
+
+    <div class="info">
+        <h1 id="0">Name</h1>
+        <h2><a href="edit.html" id="edit-info-link" class="edit-info">EDIT INFO</a></h2>
+        <h6 id="1">School:</h6>
+        <h6 id="2">Email:</h6>
+        <h6 id="3">Contact:</h6>
+    </div>
+        
+    <!-- Logout button outside the nav -->
+    <button id="logout-btn">LOG OUT</button>
+
+    <div class="container">
+        <div id="reminder-msg" style="display:none;"></div>
+
+        <!-- Reminder Popup -->
+        <div id="reminder-popup">
+            <h3>Reminder Triggered!</h3>
+            <p>Your reminder time has come!</p>
+            <button id="close-popup">Close</button>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteApp - OneApp</title>
+    <link rel="stylesheet" href="displayNotes.css">
+</head>
+
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="logo">
+            <a href="../main/index.html">
+                <img src="images/oneapp-logo.png" alt="OneApp Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="../To-do-list/to-do-list.html" class="todo-link">
+                <img src="images/todo-icon.png" alt="To-Do Icon" class="todo-icon">
+            </a>
+            <a href="../flashcards/flashcards.html" class="flashcards-link">
+                <img src="images/flashcards-icon.png" alt="Flashcards Icon" class="flashcards-icon">
+            </a>
+            <a href="../NoteApp/displayNotes.html" class="NoteApp-link active">
+                <img src="images/Note App logo.png" alt="NoteApp Icon" class="NoteApp-icon">
+            </a>
+            <a href="../stopwatch/stopwatch.html" class="stopwatch-link">
+                <img src="images/Clock APP logo.png" alt="Stopwatch Icon" class="stopwatch-icon">
+            </a>
+            <a href="../about-page/about-page.html" class="about-link">
+                <img src="images/about-icon.png" alt="About Icon" class="about-icon">
+            </a>
+        </nav>
+
+        <!-- Profile Section -->
+        <a href="../profile/profile.html" class="profile-link">
+            <div class="profile-pic-div">
+                <img src="images/default-profile-pic.jpg" id="photo" alt="Profile Picture">
+            </div>
+            <p id="NAME">Test Name</p>
+            <p id="id">ID:</p>
+        </a>
+
+        <!-- Toggle Sidebar Button -->
+        <img src="images/logo.png" alt="Toggle Sidebar" id="toggle-btn" class="toggle-btn">
+    </div>
+
+    <!-- Header for My Notes -->
+    <header id="page-header">
+        <h1>My Notes</h1>
+    </header>
+
+    <!-- Add Note Button -->
+    <div class="btn">
+        <button id="addBtn">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="main">
+        <div class="no-notes-message" style="display: none;">No notes available! Try adding one!</div>
+        <!-- Notes will be dynamically added here -->
+    </div>
+
+    <div class="container">
+        <div id="reminder-msg" style="display:none;"></div>
+
+        <!-- Reminder Popup -->
+        <div id="reminder-popup">
+            <h3>Reminder Triggered!</h3>
+            <p>Your reminder time has come!</p>
+            <button id="close-popup">Close</button>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/bf520e6492.js" crossorigin="anonymous"></script>
+    <script src="displayNotes.js" defer></script>
+</body>
+
+</html>

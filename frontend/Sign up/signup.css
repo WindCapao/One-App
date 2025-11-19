@@ -1,0 +1,304 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(/pictures/signupbg.jfif);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+/* nav bar*/
+.navigation img{
+    width: 400px;
+    mix-blend-mode: multiply;
+    position: absolute;
+    top: 5px;
+    left: 20px;
+}
+
+.navigation{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.navigation ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 10px 20px;
+    border-radius: 15px; 
+    border: 1px solid transparent;
+    transition: background-color 0.3s, padding 0.3s, border-radius 0.3s;
+    display: inline-block;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.navigation a:hover{
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid maroon;
+    color: maroon;
+    padding: 5px 20px;
+    width:89px; 
+}
+
+/*form*/
+.sign-up-form{
+    background-color: rgba(244, 232, 232, 255);
+    padding: 70px;
+    border-radius: 15px;
+    width: 550px;
+    height: 325px;
+    margin: 20px 20px 0 auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    float: right;
+    position: absolute;
+    right: 290px;
+    top: 70px;
+}
+
+.sign-up-form h3{
+    font-family: serif;
+    margin-top: 0;
+    text-align: center;
+    font-size: 30px;
+    color: rgba(152, 22, 22, 255);
+    top: 20px;
+    position: absolute;
+    right: 225px;
+}
+
+.form{
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: left;
+    font-size: 15px;
+    position: relative;
+    top: -10px;
+    left: -30px;
+}
+
+.form label{
+    display: block;
+    margin-bottom: 15px;
+    color: rgba(165, 75, 74, 255)
+}
+
+.form input{
+    height: 50px;
+    width: 610px;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 0px 10px;
+    border-radius: 20px;
+    display:inline-block;
+    border:none;
+}
+
+
+.form img{
+    position: absolute;
+    width: 30px;
+    cursor: pointer;
+    top: 45px;
+    right: -50px;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Add transition for smooth visibility change */
+}
+
+
+input[type="checkbox"] {
+    appearance: none; 
+    margin-right: 8px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 3px;
+    border: 2px solid black;
+    width: 35px;
+    height: 35px;
+    position:relative;
+    top: 10px;
+    left: 5px;
+    display: inline-block;
+}
+
+input[type="checkbox"]:checked{
+    background-color: rgba(244, 232, 232, 255);
+    border-color:black;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "✔";
+    position: absolute;
+    top: -2px;
+    left: 4px;
+    font-size: 30px;
+    color: #333;
+    opacity: 0;
+    animation: fadeInCheck 0.3s forwards;
+    background-color: rgba(244, 232, 232, 255) 40%;
+}
+
+
+@keyframes fadeInCheck {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 10px; 
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-top: 4px; 
+}
+
+.checkbox-container label p {
+    margin: 0;
+    font-size: 15px;
+    color: #333;
+    right: -50px;
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify;
+    top: -5px;
+}
+
+.checkbox-container label a {
+    color: blue; 
+    text-decoration: none;
+}
+
+.checkbox-container label a:hover {
+    text-decoration: underline;
+}
+
+.A1{
+    color:black;
+    font-size: 17px;
+    position: absolute;
+    top: 365px;
+    right:290px;
+ }
+
+ .A2{
+    color:blue;
+    text-decoration: none;
+    position: absolute;
+    top: 383px;
+    right: 145px;    
+ }
+
+ .A3{
+    color:black;
+    font-size: 17px;
+    position: absolute;
+    top: 385px;
+    right:488px;
+ }
+
+ .A4{
+    color:blue;
+    text-decoration: none;
+    position: absolute;
+    top: 403px;
+    right: 385px;    
+ }
+
+ .A2:hover, .A4:hover{
+    text-decoration: underline;
+ }
+
+
+
+ .button{
+    height: 40px;
+    width: 200px;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 0px;
+    border-radius: 20px;
+    color:white;
+    border: none;
+    box-shadow: 10px;
+    cursor: pointer;
+    display: inline-block;
+    background: maroon;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 2);
+    position: absolute;
+    top: 455px;
+    right: 245px;
+}
+
+
+/* for mobile*/
+@media(max-width:768px){
+    .navigation{
+        position: fixed;
+        top:0;
+        width: 100%;
+        z-index: 10;
+        padding: 10px 20px;
+    }
+   
+    .navigation img{
+        background-color: transparent;
+        mix-blend-mode: multiply;
+        height: 50pxs;
+    }
+
+    .navigation a{
+        color:maroon;
+    }
+
+    .sign-up-form{
+        position: absolute;
+        right: -10px;
+        top: 75px;
+    }
+    .button{
+        top:430px;
+    }
+}
+
+
+/* Eye icon for password visibility toggle */
+.form img#eyeicon {
+    width: 25px; /* Set the desired width for the icon */
+    height: 25px; /* Set the desired height for the icon */
+    position: absolute;
+    top: 61px; /* Vertically center relative to the input */
+    right: -65px; /* Adjust to position near the right edge of the input */
+    transform: translateY(-50%); /* Correct for vertical alignment */
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease; /* Smooth transitions for hover effects */
+}
+
+/* Hover effect for the eye icon */
+.form img#eyeicon:hover {
+    transform: translateY(-50%) scale(1.2); /* Slightly enlarge on hover */
+    filter: brightness(1.2); /* Brighten the icon for emphasis */
+}

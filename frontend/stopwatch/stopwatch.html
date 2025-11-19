@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch with Clock and Reminder</title>
+    <link rel="stylesheet" href="stopwatch.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo">
+            <a href="../main/index.html">
+                <img src="images/oneapp-logo.png" alt="OneApp Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="../To-do-list/to-do-list.html" class="todo-link">
+                <img src="images/todo-icon.png" alt="To-Do Icon" class="todo-icon">
+            </a>
+            <a href="../flashcards/flashcards.html" class="flashcards-link">
+                <img src="images/flashcards-icon.png" alt="Flashcards Icon" class="flashcards-icon">
+            </a>
+            <a href="../NoteApp/displayNotes.html" class="NoteApp-link">
+                <img src="images/Note App logo.png" alt="NoteApp Icon" class="NoteApp-icon">
+            </a>
+            <a href="../stopwatch/stopwatch.html" class="stopwatch-link">
+                <img src="images/Clock APP logo.png" alt="Stopwatch Icon" class="stopwatch-icon">
+            </a>
+            <a href="../about-page/about-page.html" class="about-link">
+                <img src="images/about-icon.png" alt="About Icon" class="about-icon">
+            </a>
+        </nav>
+
+        <a href="../profile/profile.html" class="profile-link">
+            <div class="profile-pic-div">
+                <img src="images/default-profile-pic.jpg" id="photo" alt="Profile Picture">
+                <input type="file" id="file" hidden>
+                <button id="uploadBtn" style="display: none;">Upload</button>
+            </div>
+            <p id="NAME">Test name</p>
+            <p id="id">ID:</p>
+        </a>
+
+        <img src="images/logo.png" alt="Toggle Sidebar" id="toggle-btn" class="toggle-btn">
+    </div>
+
+    <div class="title">
+        <h1>Clock App</h1>
+    </div>
+
+    <div class="container">
+        <!-- Stopwatch Section -->
+        <div class="stopwatch-container">
+            <h1>Stop Watch</h1>
+            <div id="stopwatch-time">
+                <span class="digit" id="hr">00</span>
+                <span class="colon">:</span>
+                <span class="digit" id="min">00</span>
+                <span class="colon">:</span>
+                <span class="digit" id="sec">00</span>
+            </div>
+            <div id="stopwatch-labels">
+                <span class="txt1">Hr</span>
+                <span class="txt2">Min</span>
+                <span class="txt3">Sec</span>
+            </div>
+            <div id="stopwatch-buttons">
+                <button class="btn" id="start">Start</button>
+                <button class="btn" id="stop">Stop</button>
+                <button class="btn" id="reset">Reset</button>
+            </div>
+        </div>
+
+        <!-- Clock Section -->
+        <div class="clock-container">
+            <div id="clock">
+                <h2>Current Time: <span id="current-time">00:00:00</span></h2>
+            </div>
+            <div id="reminder">
+                <input type="time" id="reminder-time" />
+                <button id="set-reminder">Set Reminder</button>
+                <p id="reminder-msg" style="display: none;"></p>
+            </div>
+        </div>
+    </div>
+
+    <img src="/pictures/Logo Only.png" id="design">
+
+    <div class="container">
+        <div id="reminder-msg" style="display:none;"></div>
+
+        <!-- Reminder Popup -->
+        <div id="reminder-popup">
+            <h3>Reminder Triggered!</h3>
+            <p>Your reminder time has come!</p>
+            <button id="close-popup">Close</button>
+        </div>
+    </div>
+
+    <script src="stopwatch.js"></script>
+</body>
+</html>

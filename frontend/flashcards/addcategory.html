@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Category</title>
+    <link rel="stylesheet" href="addcategory.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <a href="../main/index.html">
+                <img src="images/oneapp-logo.png" alt="OneApp Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="/To-do-list/todo.html" class="todo-link">
+                <img src="images/todo-icon.png" alt="To-Do" class="todo-icon">
+            </a>
+            <a href="/flashcards/flashcards.html" class="flashcards-link">
+                <img src="images/flashcards-icon.png" alt="Flashcards" class="flashcards-icon">
+            </a>
+            <a href="../NoteApp/displayNotes.html" class="NoteApp-link"> 
+                <img src="images/Note App logo.png" alt="NoteApp Icon" class="NoteApp-icon">
+            </a>
+            <a href="../stopwatch/stopwatch.html" class="stopwatch-link">
+                <img src="images/Clock APP logo.png" alt="stopwatch Icon" class="stopwatch-icon">
+            </a>
+            <a href="../about-page/about-page.html" class="about-link">
+                <img src="images/about-icon.png" alt="About Icon" class="about-icon">
+            </a> 
+        </nav>
+                <!-- Profile link inside the navigation -->
+                <a href="../profile/profile.html" class="profile-link">
+                    <div class="profile-pic-div">
+                        <img src="images/logo.png" id="photo" alt="Profile Picture">
+                    </div>
+                    <p id="NAME">Test name</p>
+                    <p id="id">ID:</p>
+                </a>
+        
+        <img src="images/logo.png" alt="Toggle Sidebar" id="toggle-btn" class="toggle-btn"> 
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <h1>Create New Category</h1>
+
+        <!-- Add Category Form -->
+        <div id="category-form">
+            <h2>New Category</h2>
+            <form id="cat-form">
+                <input type="text" id="cat-name" placeholder="Category Name" required>
+                <textarea id="cat-desc" placeholder="Description (Optional)"></textarea>
+                <button type="submit">Add Category</button>
+            </form>
+        </div>
+        <!-- Back to Flashcards Button -->
+        <a href="http://localhost:3000/flashcards/flashcards.html" id="back-to-flashcards-btn">
+            <button>Back</button>
+        </a>
+
+        <!-- Add flashcard Button (Initially hidden) -->
+        <a href="http://localhost:3000/flashcards/addflashcard.html" id="addflashcard-btn" style="display: none;">
+            <button>Add flashcard</button>
+        </a>
+    </div>
+
+    <div class="container">
+        <div id="reminder-msg" style="display:none;"></div>
+
+        <!-- Reminder Popup -->
+        <div id="reminder-popup">
+            <h3>Reminder Triggered!</h3>
+            <p>Your reminder time has come!</p>
+            <button id="close-popup">Close</button>
+        </div>
+    </div>
+
+    <script src="addcategory.js"></script>
+</body>
+</html>

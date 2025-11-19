@@ -1,0 +1,495 @@
+    /* General resets */
+    body, html {  
+        margin: 0px;  
+        padding: 0;  
+        font-family: 'Poppins', sans-serif;  
+        min-height: 100vh;  /* Ensures the body takes full height */
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    /* Sidebar Styling */
+    /* Sidebar hidden by default on small screens */
+    .sidebar {
+        width: 200px;
+        background-color: #F6E9E9;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        border-radius: 0 10px 10px 0;
+        position: fixed;
+        top: 0;
+        left: -200px; /* Initially hidden */
+        height: 100vh;
+        z-index: 1000;
+        transition: left 0.3s ease; /* Smooth transition when toggled */
+    }
+
+    /* Toggle button styling */
+    .toggle-btn {
+        width: 50px; /* Adjust size */
+        height: 50px;
+        display: flex;
+        position: absolute;
+        top: 20px; /* Adjust as needed */
+        right: -50px; /* Start off to the right */
+        transition: right 0.3s ease, top 0.3s ease; /* Smooth transition */
+    }
+
+    /* Move the toggle button to the top-left corner when sidebar is open */
+    .sidebar.open ~ #toggle-btn {
+        right: 20px;
+        top: 20px;
+    }
+
+    /* Sidebar when open */
+    .sidebar.open {
+        left: 0; /* Show the sidebar */
+    }
+
+    /* Main content adjustments when sidebar is open */
+    .homepage-content {
+        margin-left: 0; /* Adjust the content position */
+        width: 100%; /* Full width */
+    }
+
+
+    /* Logo styling inside the sidebar */
+    .logo a {
+        display: flex;
+        align-items: center;
+        justify-content: center;  /* Center the logo */
+        gap: 10px;
+        text-decoration: none;
+        color: #FF6B6B;
+        font-weight: bold;
+        width: 100%;
+        padding: 20px;  /* Add more padding to make the logo area bigger */
+        background-color: transparent;
+        border-radius: 0;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        margin-bottom: 20px;  /* Space between logo and navigation links */
+    }
+
+    .logo a img {
+        width: 100%;  /* Ensure the image scales properly */
+        max-width: 200px;  /* Set a max width for the logo image */
+        height: auto;  /* Maintain aspect ratio */
+        margin-left: -50px;
+    }
+
+    /* Navigation links container */
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Individual navigation link styling */
+    nav a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: #FF6B6B;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 5px; /* Rounded corners */
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    }
+
+    /* Hover effect for navigation links */
+    nav a:hover {
+        background-color: #FF6B6B;
+        color: white;
+    }
+
+    /* Ensure icons turn white on hover */
+    nav a:hover img {
+        filter: brightness(0) invert(1); /* Makes icons white on hover */
+        transition: filter 0.3s ease;
+    }
+
+    /* Adjustments for individual icon sizes */
+    nav a.todo-link img.todo-icon {
+        height: 20px;
+    }
+
+    nav a.flashcards-link img.flashcards-icon {
+        height: 25px;
+    }
+
+    nav a.NoteApp-link img.NoteApp-icon {
+        height: 23px;
+    }
+
+    nav a.stopwatch-link img.stopwatch-icon {
+    height: 25px;
+}
+
+
+nav a.about-link img.about-icon {
+    height: 23px;
+}
+
+/* Main content styling (to prevent overlap with sidebar) */
+.main-content {
+    margin-left: 200px;  /* Matches sidebar width */
+    width: calc(100% - 200px); /* Ensures the content takes the full width minus sidebar */
+    padding: 20px;
+    height: 100vh;  /* Takes full height of the viewport */
+    overflow-y: auto;  /* Allows scrolling for content */
+    background: linear-gradient(to bottom, #FFF1F1, #FFDADA); /* Optional gradient background */
+}
+
+/* Main content styling */
+.homepage-content {
+    text-align: center;
+    position: absolute; /* Use absolute positioning to ensure full coverage */
+    top: 0; /* Start at the top of the viewport */
+    left: 0; /* Aligns with the left edge of the viewport */
+    width: 100%; /* Take up the full width */
+    height: 100vh; /* Covers the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f6d365, #fda085); /* Gradient background */
+    color: #fff;
+    animation: fadeIn 1.5s ease-out;
+    transition: left 0.3s ease, width 0.3s ease; /* Transition for smooth effect */
+}
+
+/*design for the next page*/
+
+#toggle-arrow {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+    background-color: #E63946;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#toggle-arrow:hover {
+    background-color: white;
+    color: red;
+}
+
+#back {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    left: 50px;
+    background-color: white;
+    color: #E63946;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
+}
+
+
+/* Adjust for when the sidebar is open */
+.sidebar.open ~ .homepage-content {
+    left: 200px; /* Shift content to the right when sidebar is open */
+    width: calc(100% - 200px); /* Adjust width to accommodate sidebar */
+}
+
+
+/*context */
+.about{
+    display:flex;
+}
+.about img{
+    width: 400px;
+    height: 450x;
+    position: absolute;
+    right: 50px;
+    top: 100px;
+}
+
+/* Move the title when the sidebar is closed */
+.sidebar:not(.open) ~ .about img{
+    transform: translateX(-50px); /* Move text horizontally when sidebar is closed */
+}
+
+/* Keep the title in place when the sidebar is open */
+.sidebar.open  ~ .about img {
+    transform: translateX(0px); /* No transformation when sidebar is open*/
+}
+
+/* Default styling for the title */
+.title {
+    color: red;
+    position: absolute;
+    right: 890px;
+    font-size: 45px;
+    font-family: sans-serif;
+    top: -30px;
+    transition: transform 0.3s ease; /* Smooth transition for moving the title */
+}
+
+/* Move the title when the sidebar is closed */
+.sidebar:not(.open) ~ .about .title {
+    transform: translateX(350px); /* Move text horizontally when sidebar is closed */
+}
+
+/* Keep the title in place when the sidebar is open */
+.sidebar.open  ~ .about .title {
+    transform: translateX(0px); /* No transformation when sidebar is open*/
+}
+
+.p1{
+    position: absolute;
+    font-size: 30px;
+    right: 630px;
+    top: 50px;
+    width: 450px;
+}
+
+/* Move the title when the sidebar is closed */
+.sidebar:not(.open) ~ .about .p1 {
+    transform: translateX(-100px); /* Move text horizontally when sidebar is closed */
+}
+
+/* Keep the title in place when the sidebar is open */
+.sidebar.open  ~ .about .p1 {
+    transform: translateX(0px); /* No transformation when sidebar is open*/
+}
+
+.p2{ 
+    position: absolute;
+    font-size: 18px;
+    right: 630px;
+    top: 155px;
+    width: 450px;
+}
+
+/* Move the title when the sidebar is closed */
+.sidebar:not(.open) ~ .about .p2 {
+    transform: translateX(-100px); /* Move text horizontally when sidebar is closed */
+}
+
+/* Keep the title in place when the sidebar is open */
+.sidebar.open  ~ .about .p2 {
+    transform: translateX(0px); /* No transformation when sidebar is open*/
+}
+
+.p3{
+    position: absolute;
+    font-size: 18px;
+    right: 630px;
+    top: 280px;
+    width: 450px;
+}
+
+/* Move the title when the sidebar is closed */
+.sidebar:not(.open) ~ .about .p3 {
+    transform: translateX(-100px); /* Move text horizontally when sidebar is closed */
+}
+
+/* Keep the title in place when the sidebar is open */
+.sidebar.open  ~ .about .p3 {
+    transform: translateX(0px); /* No transformation when sidebar is open*/
+}
+
+.p4 {
+    position: absolute;
+    font-size: 20px;
+    right: 275px;
+    top: 400px;
+    width: 610px;
+    font: 100;
+    border-radius: 100px; /* Rounded corners */
+    background-color: pink; /* Background inside the border */
+    padding: 20px; /* Internal spacing */
+    display: flex; /* Enables flexbox layout */
+    align-items: center; /* Vertically center the text */
+    justify-content: center; /* Horizontally center the text */
+    text-align: center; /* Center-align text inside */
+}
+
+/* Move the title when the sidebar is closed */
+.sidebar:not(.open) ~ .about .p4 {
+    transform: translateX(-50px); /* Move text horizontally when sidebar is closed */
+}
+
+/* Keep the title in place when the sidebar is open */
+.sidebar.open  ~ .about .p4 {
+    transform: translateX(0px); /* No transformation when sidebar is open*/
+}
+
+
+.p5{
+    position: absolute;
+    font-size: 18px;
+    right: 250px;
+    top: 520px;
+    width: 450px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+/* Move the title when the sidebar is closed */
+.sidebar:not(.open) ~ .about .p5 {
+    transform: translateX(-10px); /* Move text horizontally when sidebar is closed */
+}
+
+/* Keep the title in place when the sidebar is open */
+.sidebar.open  ~ .about .p5 {
+    transform: translateX(0px); /* No transformation when sidebar is open*/
+}
+.p6{
+    position: absolute;
+    font-size: 18px;
+    right: 600px;
+    top: 550px;
+    width: 450px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+/* Move the title when the sidebar is closed */
+.sidebar:not(.open) ~ .about .p6 {
+    transform: translateX(-130px); /* Move text horizontally when sidebar is closed */
+}
+
+/* Keep the title in place when the sidebar is open */
+.sidebar.open  ~ .about .p6 {
+    transform: translateX(0px); /* No transformation when sidebar is open*/
+}
+
+.p7{
+    position: absolute;
+    font-size: 18px;
+    right: 250px;
+    top: 550px;
+    width: 450px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.sidebar:not(.open) ~ .about .p7 {
+    transform: translateX(-5px); /* Move text horizontally when sidebar is closed */
+}
+
+/* Keep the title in place when the sidebar is open */
+.sidebar.open  ~ .about .p7 {
+    transform: translateX(0px); /* No transformation when sidebar is open*/
+}
+
+.p8{
+    position: absolute;
+    font-size: 18px;
+    right: -100px;
+    top: 550px;
+    width: 450px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.p9{
+    position: absolute;
+    font-size: 18px;
+    right: 800px;
+    top: 580px;
+    width: 300px;
+    font-family: sans-serif;
+}
+
+.sidebar:not(.open) ~ .about .p9 {
+    transform: translateX(-80px); /* Move text horizontally when sidebar is closed */
+}
+
+/* Keep the title in place when the sidebar is open */
+.sidebar.open  ~ .about .p9 {
+    transform: translateX(0px); /* No transformation when sidebar is open*/
+}
+
+.p10{
+    position: absolute;
+    font-size: 18px;
+    right: 450px;
+    top: 580px;
+    width: 300px;
+    font-family: sans-serif;
+}
+
+.p11{
+    position: absolute;
+    font-size: 18px;
+    right: 100px;
+    top: 580px;
+    width: 300px;
+    font-family: sans-serif;
+}
+
+/*For profile*/
+.profile-pic-div{
+    height: 75px;
+    width: 75px;
+    position:absolute;
+    top:550px;
+    left:50px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow:hidden;
+    border: 1px solid grey;
+}
+
+#photo{
+    height: 100%;
+    width: 100%;
+}
+
+#file{
+    display:none;
+}
+
+#uploadBtn{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    line-height: 30px;;
+    font-family: sans-serif;
+    font-size: 15px;
+    cursor:pointer;
+    display: none;
+}
+
+#NAME{
+    position: absolute;
+    top:510px;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 100px;
+}
+
+#id{
+    position: absolute;
+    top:550px;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 100px;
+}
+

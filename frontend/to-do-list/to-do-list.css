@@ -1,0 +1,726 @@
+/* General resets */
+body, html {  
+    margin: 0px;  
+    padding: 0;  
+    font-family: 'Poppins', sans-serif;  
+    min-height: 100vh;  /* Ensures the body takes full height */
+    display: flex;  /* Align the sidebar and main content horizontally */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 200px;
+    background-color: #F6E9E9;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 10px 10px 0;
+    position: fixed;
+    top: 0;
+    left: -200px; /* Initially hidden */
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease; /* Smooth transition when toggled */
+}
+
+/* Toggle button styling */
+.toggle-btn {
+    width: 50px; /* Adjust size */
+    height: 50px;
+    display: flex;
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: -50px; /* Start off to the right */
+    transition: right 0.3s ease, top 0.3s ease; /* Smooth transition */
+}
+
+/* Move the toggle button to the top-left corner when sidebar is open */
+.sidebar.open ~ #toggle-btn {
+    right: 20px;
+    top: 20px;
+}
+
+/* Sidebar when open */
+.sidebar.open {
+    left: 0; /* Show the sidebar */
+}
+
+/* Main content adjustments when sidebar is open */
+.homepage-content {
+    margin-left: 0; /* Adjust the content position */
+    width: 100%; /* Full width */
+}
+
+
+/* Logo styling inside the sidebar */
+.logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Center the logo */
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    width: 100%;
+    padding: 20px;  /* Add more padding to make the logo area bigger */
+    background-color: transparent;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 20px;  /* Space between logo and navigation links */
+}
+
+.logo a img {
+    width: 100%;  /* Ensure the image scales properly */
+    max-width: 200px;  /* Set a max width for the logo image */
+    height: auto;  /* Maintain aspect ratio */
+    margin-left: -50px;
+}
+
+/* Navigation links container */
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Individual navigation link styling */
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for navigation links */
+nav a:hover {
+    background-color: #FF6B6B;
+    color: white;
+}
+
+/* Ensure icons turn white on hover */
+nav a:hover img {
+    filter: brightness(0) invert(1); /* Makes icons white on hover */
+    transition: filter 0.3s ease;
+}
+
+/* Adjustments for individual icon sizes */
+nav a.todo-link img.todo-icon {
+    height: 20px;
+}
+
+nav a.flashcards-link img.flashcards-icon {
+    height: 25px;
+}
+
+nav a.NoteApp-link img.NoteApp-icon {
+    height: 23px;
+}
+
+nav a.stopwatch-link img.stopwatch-icon {
+    height: 25px;
+}
+
+nav a.about-link img.about-icon {
+    height: 23px;
+}
+
+/*For profile*/
+.profile-pic-div{
+    height: 75px;
+    width: 75px;
+    position:absolute;
+    top:550px;
+    left:50px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow:hidden;
+    border: 1px solid grey;
+}
+
+#photo{
+    height: 100%;
+    width: 100%;
+}
+
+#file{
+    display:none;
+}
+
+#uploadBtn{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    line-height: 30px;;
+    font-family: sans-serif;
+    font-size: 15px;
+    cursor:pointer;
+    display: none;
+}
+
+#NAME{
+    position: absolute;
+    top:510px;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 100px;
+}
+
+
+#id{
+    position: absolute;
+    top:550px;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 100px;
+}
+
+
+/* Main content styling (to prevent overlap with sidebar) */
+.main-content {
+    margin-left: 250px;  /* Gives space for the sidebar */
+    padding: 20px;
+    height: 100vh;  /* Takes full height of the viewport */
+    overflow-y: auto;  /* Allows scrolling for content */
+}
+
+/* To-do list styling */
+.icontodo {
+    width: 280px;
+    height: 30px;
+    position: relative;
+    padding-top: 40px; 
+    padding-bottom: 30px;
+    top: 20px;
+    right: -240px;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    gap: 130px; /* Adds space between buttons */
+    margin-bottom: 20px;
+    position: absolute; 
+
+}
+
+#buttons button {
+    margin-left: 10px; /* Adds space to the left of each button */
+    margin-right: 10px; /* Adds space to the right of each button */
+    margin-bottom: 10px;
+}
+
+#buttons button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: maroon;
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 5px;
+    right: -270px;
+    top: 30px;
+    transition: color 0.3s ease;
+}
+
+#buttons button:hover {
+    color: #f96e6e;
+}
+
+#buttons button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: black;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+#buttons button:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+
+/* Move the title when the sidebar is closed */
+.sidebar:not(.open) ~ #taskLists .icontodo{
+    transform: translateX(280px); /* Move text horizontally when sidebar is closed */
+}
+
+/* Keep the title in place when the sidebar is open */
+.sidebar.open  ~ #TaskLists.icontodo {
+    transform: translateX(0px); /* No transformation when sidebar is open*/
+}
+
+/* Move the title when the sidebar is closed */
+.sidebar:not(.open) ~ #taskLists #assignedBtn {
+    transform: translateX(-150px); /* Move text horizontally when sidebar is closed */
+}
+
+/* Keep the title in place when the sidebar is open */
+.sidebar.open  ~ #tasklists #assignedBtn  {
+    transform: translateX(0px); /* No transformation when sidebar is open*/
+}
+
+/* Move the title when the sidebar is closed */
+.sidebar:not(.open) ~ #taskLists #missingBtn{
+    transform: translateX(-30px); /* Move text horizontally when sidebar is closed */
+}
+
+/* Keep the title in place when the sidebar is open */
+.sidebar.open  ~ #tasklists #missingBtn {
+    transform: translateX(0px); /* No transformation when sidebar is open*/
+}
+
+/* Move the title when the sidebar is closed */
+.sidebar:not(.open) ~ #taskLists #finishedBtn{
+    transform: translateX(125px); /* Move text horizontally when sidebar is closed */
+}
+
+/* Keep the title in place when the sidebar is open */
+.sidebar.open  ~ #tasklists #finishedBtn {
+    transform: translateX(0px); /* No transformation when sidebar is open*/
+}
+
+
+
+/* Task List Styling */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 90px;
+    margin-left: 370px;
+    width: 70%;
+}
+
+li {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+/* Hide the default checkbox */
+.task-checkbox {
+    display: none;
+}
+
+/* Custom checkbox styling */
+.task-checkbox + label {
+    position: relative;
+    padding-left: 30px; /* Add more space to the left for checkbox */
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+    width: 100%;
+}
+
+/* Custom checkbox appearance */
+.task-checkbox + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FF6B6B;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+/* When the checkbox is checked */
+.task-checkbox:checked + label::before {
+    background-color: #FF6B6B;
+    border-color: #fff;
+}
+
+.task-checkbox:checked + label {
+    color: #888;
+    text-decoration: line-through;
+}
+
+/* Hover effect for the custom checkbox */
+.task-checkbox + label:hover::before {
+    background-color: #f1f1f1;
+}
+
+/* Add a slight scale effect when hovering over the checkbox */
+.task-checkbox + label::before {
+    transition: transform 0.3s ease;
+}
+
+.task-checkbox + label:hover::before {
+    transform: scale(1.1);
+}
+
+/* Button styling */
+.add-button img {
+    display:flex;
+    position:absolute;
+    width: 100x;
+    height: 50px;
+    right: 50px;
+    top: 560px;
+    transition: transform 0.3s ease;
+}
+
+.add-button img:hover {
+    transform: scale(1.1); /* Slight scale effect on hover */
+}
+
+/* Move the title when the sidebar is closed */
+.sidebar:not(.open) ~ .add-button img {
+    transform: translateX(-100px); /* Move text horizontally when sidebar is closed */
+}
+
+/* Keep the title in place when the sidebar is open */
+.sidebar.open  ~ .add-button img{
+    transform: translateX(0px); /* No transformation when sidebar is open*/
+}
+
+/* New Task Item Styling */
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.task-item span {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+/* Icon Styling */
+.icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: transform 0.2s;
+}
+
+/* Icon Hover Effect */
+.icon:hover {
+    transform: scale(1.2);
+}
+
+/*For profile*/
+/* Profile link container */
+.profile-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align profile content to the left */
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    position: absolute;  /* Absolute positioning to keep it in the sidebar */
+    top: 600px;  /* Position it where it was originally */
+    left: 50px;  /* Position it to the left */
+    width: 100%;  /* Full width of the sidebar */
+}
+
+.profile-link:hover{
+    color:white;
+}
+
+/* Profile picture container */
+.profile-pic-div {
+    height: 75px;
+    width: 75px;
+    position: relative;
+    top: -50px;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid grey;
+}
+
+/* Ensures profile picture fits the container */
+#photo {
+    height: 100%;
+    width: 100%;
+}
+
+/* Ensure file input and label are styled correctly */
+#file {
+    display: none;
+}
+
+/* Profile name and ID text */
+#NAME, #id {
+    position: absolute;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 50px;
+}
+
+#NAME {
+    top: -90px;
+}
+
+#id {
+    top: -50px;
+}
+
+
+
+#task-container {
+    margin-top: 50px; /* Adjust this value */
+}
+
+.task {
+    margin-bottom: 20px; /* Adds space below each task */
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task {
+    margin-top: 100px; /* Moves the task down by 50px */
+}
+
+
+/* General icon adjustments */
+.checkbox {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Edit and Delete icon sizes */
+.edit-icon,
+.delete-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Platform icon sizes */
+.platform-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+/* List item layout using flexbox */
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;  /* This serves as the reference point for the checkbox's absolute positioning */
+    padding-left: 40px;  /* Adjust left padding to make space for the checkbox */
+    margin-bottom: 15px;  /* Space between tasks */
+}
+
+/* Icon hover effects */
+.edit-icon:hover,
+.delete-icon:hover,
+.platform-icon:hover {
+    opacity: 0.7;
+}
+
+
+/* Task Text Style */
+.task-text {
+    flex-grow: 1;
+}
+
+/* Style for completed tasks */
+.task-text.finished {
+    text-decoration: line-through;
+    color: #6c757d;
+}
+
+/* Task Item Hover Effect */
+.task-item:hover {
+    background-color: #f7f7f7; /* Slight change when hovering */
+    transform: translateY(-5px); /* Subtle lift effect on hover */
+}
+
+/* Task Item Checkboxes */
+.checkbox {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Custom checkbox appearance */
+.checkbox::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #FF6B6B;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* When checkbox is checked */
+.checkbox.checked::before {
+    background-color: #FF6B6B;
+    border-color: #fff;
+}
+
+/* Checkmark inside checkbox */
+.checkbox.checked::after {
+    content: '✔';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    line-height: 24px;
+}
+
+/* Task Item Icons (Edit/Delete) */
+.edit-icon,
+.delete-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Hover effect for icons */
+.edit-icon:hover,
+.delete-icon:hover {
+    transform: scale(1.2); /* Slightly enlarge icons on hover */
+}
+
+/* Task Delete Icon Styling */
+.delete-icon {
+    color: #e74c3c;
+}
+
+/* Task Edit Icon Styling */
+.edit-icon {
+    color: #3498db;
+}
+
+/* Position the checkbox outside the task box */
+.checkbox {
+    position: absolute;
+    left: -30px;  /* Move the checkbox outside of the task box */
+    top: 50%;  /* Vertically center the checkbox */
+    transform: translateY(-50%);  /* Fine-tune vertical centering */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Task text style for completed tasks */
+.task-text.finished {
+    text-decoration: line-through;  /* Strike-through the task text */
+    color: #6c757d;                 /* Light grey color to indicate completion */
+}
+
+/* Cross out effect for the checkbox */
+.checkbox.checked:after {
+    content: '✔';                  /* Display a checkmark inside the checkbox */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 16px;
+    color: white;                  /* White checkmark */
+    text-align: center;
+    line-height: 18px;             /* Center the checkmark vertically */
+}
+
+/* When task is marked as finished, change checkbox color */
+.checkbox.checked {
+    background-color: #FF6B6B;     /* Change background to indicate it's checked */
+    border: 2px solid #FF6B6B;     /* Match the border color to the background */
+    position: relative;
+    transform: scale(1.1);         /* Slightly scale the checkbox when checked */
+}
+
+/* General list item hover effects */
+li:hover {
+    background-color: #f7f7f7;     /* Slight background change when hovering over a task */
+    cursor: pointer;               /* Indicate that the task is clickable */
+    border-radius: 8px;             /* Rounded corners for hover effect */
+    transition: background-color 0.3s ease;
+}
+
+/* Add spacing between tasks */
+li:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+#reminder-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+    width: 300px;
+}
+
+#reminder-popup h3 {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+#close-popup {
+    background-color: #ff3b3b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#close-popup:hover {
+    background-color: #d32f2f;
+}

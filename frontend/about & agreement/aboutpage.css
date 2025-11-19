@@ -1,0 +1,224 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(/pictures/signupbg.jfif);
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    mix-blend-mode: multiply;
+}
+
+/* navigation bar*/
+.navigation img{
+    width: 350px;
+    mix-blend-mode: multiply;
+    position: absolute;
+    top: 5px;
+    left: 20px;
+}
+
+.navigation{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+}
+
+/*About area */
+.ABOUT {
+    background-color: rgba(244, 232, 232, 255);
+    padding: 20px;
+    border-radius: 15px;
+    width: 750px;
+    height: 500px;
+    margin: 20px 20px 0 auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    float: right;
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
+    right: 325px;
+    top: 70px;
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styling */
+.ABOUT::-webkit-scrollbar {
+    width: 15px; 
+    height: 20px;
+    right: 15px;
+}
+
+.ABOUT::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.6); 
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.ABOUT::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2); 
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.ABOUT::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+/*inside the about*/
+.ABOUT H3{
+    text-align: center;
+    color: maroon;
+    font-size: 25px;
+    margin-top: 20px;
+    position: relative;
+    top: -5px;
+}
+
+.ABOUT img{
+    width: 330px;
+    position: absolute;
+    top: 50px;
+    right: 215px;
+}
+
+.ABOUT h4{
+    text-align: center;
+    font-size: 25px;
+    position: relative;
+    top: 200px;
+}
+
+.info1{
+    text-align: center;
+    position: relative;
+    top: 225px;
+    font-size: 18px;
+    right: -25px;
+}
+
+.info1-2{
+    text-align: center;
+    position: relative;
+    top: 225px;
+    font-size: 18px;
+    right: -25px;
+}
+
+.info1-3{
+    text-align: center;
+    position: relative;
+    top: 225px;
+    font-size: 18px;
+    right: -22px;
+}
+
+.info1-4{
+    text-align: center;
+    position: relative;
+    top: 225px;
+    font-size: 18px;
+    right:-20px;
+}
+
+.info2{
+    text-align: center;
+    position: relative;
+    top: 240px;
+    right: -25px;
+    font-size: 18px;
+}
+
+.info2-1{
+    text-align: center;
+    position: relative;
+    top: 240px;
+    right: -25px;
+    font-size: 18px;
+}
+
+.info2-2{
+    text-align: center;
+    position: relative;
+    top: 240px;
+    right: -25px;
+    font-size: 18px;
+}
+
+.border{
+    height: 55px;
+    width: 610px;
+    padding: 10px; 
+    border: 2px white #000;
+    display: inline-block; 
+    border-radius: 20px; 
+    background-color: white;
+    position: relative;
+    top: 400px;
+    right: -20px;
+}
+
+.info3{
+    text-align: center;
+    position: relative;
+    font-weight: bold;
+    top: -15px;
+    font-size: 17px;
+}
+
+.info3-1{
+    text-align:center;
+    position:relative;
+    font-weight: bold;
+    font-size: 17px;
+    top: -15px;
+}
+
+.info4{
+    text-align:center;
+    position:relative;
+    font-weight: bold;
+    font-size: 17px;
+    top: 400px;
+}
+
+.info5{
+    text-align:center;
+    position:relative;
+    font-weight: bold;
+    font-size: 17px;
+    top: 415px;
+    right:250px;
+}
+
+.info6{
+    text-align:center;
+    position:relative;
+    font-weight: bold;
+    font-size: 17px;
+    top: 378px;
+    right:-250px;
+}
+
+.info7{
+    text-align:center;
+    position:relative;
+    font-weight: bold;
+    font-size: 17px;
+    top: 380px;
+}
+
+
+/*RETURN BUTTON*/
+.button{
+    font-size: 50px;
+    font-family: bold;
+    color:red;
+    text-decoration: none;
+    position:relative;
+    right:-1040px;
+    top: 75px;
+}

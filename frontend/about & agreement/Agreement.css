@@ -1,0 +1,227 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(/pictures/signupbg.jfif);
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    mix-blend-mode: multiply;
+}
+
+/* navigation bar*/
+.navigation img{
+    width: 350px;
+    mix-blend-mode: multiply;
+    position: absolute;
+    top: 5px;
+    left: 20px;
+}
+
+.navigation{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+}
+
+/*Terms and Agreement*/
+.agreement {
+    background-color: rgba(244, 232, 232, 255);
+    padding: 20px;
+    border-radius: 15px;
+    width: 750px;
+    height: 500px;
+    margin: 20px 20px 0 auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    float: right;
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
+    right: 325px;
+    top: 70px;
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styling */
+.agreement::-webkit-scrollbar {
+    width: 15px; 
+    height: 20px;
+    right: 15px;
+}
+
+.agreement::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.6); 
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.agreement::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2); 
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.agreement::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+
+/* Inside the condition*/
+
+.agreement h3{
+    text-align: center;
+    color: maroon;
+    font-size: 25px;
+    margin-top: 20px;
+    position: relative;
+    top: -5px;
+}
+
+.TC{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: 45px;
+}
+
+.TC1{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: -10px;
+}
+
+.TC1-2{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: 147px;
+}
+
+.TC2{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: -8px;
+}
+
+.TC3{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: -8px;
+}
+
+.TC3-1{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: 220px;
+}
+
+.TC4{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: 1px;
+}
+
+.TC4-1{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: 220px;
+}
+
+.TC5{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: 32px;
+}
+
+.PP0{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: 50px;
+}
+
+.PP1{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: -10px;
+}
+
+.PP1-2{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: 212px;
+}
+
+.PP2{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: -8px;
+}
+
+.PP2-1{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: 145px;
+}
+
+.PP3{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: 65px;
+}
+
+.PP4{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: 60px;
+}
+
+.PP5{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+    right: 69px;
+}
+
+/* Return button*/
+.button{
+    font-size: 50px;
+    color:red;
+    text-decoration: none;
+    position:relative;
+    right:-1040px;
+    top: 75px;
+}

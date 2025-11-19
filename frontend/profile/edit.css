@@ -1,0 +1,415 @@
+/* General resets */
+body, html {  
+    margin: 0px;  
+    padding: 0;  
+    font-family: 'Poppins', sans-serif;  
+    min-height: 100vh;  /* Ensures the body takes full height */
+    display: flex;  /* Align the sidebar and main content horizontally */
+}
+
+/* Sidebar hidden by default on small screens */
+.sidebar {
+    width: 200px;
+    background-color: #F6E9E9;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 10px 10px 0;
+    position: fixed;
+    top: 0;
+    left: -200px; /* Initially hidden */
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease; /* Smooth transition when toggled */
+}
+
+/* Toggle button styling */
+.toggle-btn {
+    width: 50px; /* Adjust size */
+    height: 50px;
+    display: flex;
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: -50px; /* Start off to the right */
+    transition: right 0.3s ease, top 0.3s ease; /* Smooth transition */
+}
+
+/* Move the toggle button to the top-left corner when sidebar is open */
+.sidebar.open ~ #toggle-btn {
+    right: 20px;
+    top: 20px;
+}
+
+/* Sidebar when open */
+.sidebar.open {
+    left: 0; /* Show the sidebar */
+}
+
+/* Main content adjustments when sidebar is open */
+.homepage-content {
+    margin-left: 0; /* Adjust the content position */
+    width: 100%; /* Full width */
+}
+
+
+/* Logo styling inside the sidebar */
+.logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Center the logo */
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    width: 100%;
+    padding: 20px;  /* Add more padding to make the logo area bigger */
+    background-color: transparent;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 20px;  /* Space between logo and navigation links */
+}
+
+.logo a img {
+    width: 100%;  /* Ensure the image scales properly */
+    max-width: 200px;  /* Set a max width for the logo image */
+    height: auto;  /* Maintain aspect ratio */
+    margin-left: -50px;
+}
+
+/* Navigation links container */
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Individual navigation link styling */
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for navigation links */
+nav a:hover {
+    background-color: #FF6B6B;
+    color: white;
+}
+
+/* Ensure icons turn white on hover */
+nav a:hover img {
+    filter: brightness(0) invert(1); /* Makes icons white on hover */
+    transition: filter 0.3s ease;
+}
+
+
+/* Adjustments for individual icon sizes */
+nav a.todo-link img.todo-icon {
+    height: 20px;
+}
+
+nav a.flashcards-link img.flashcards-icon {
+    height: 25px;
+}
+
+nav a.NoteApp-link img.NoteApp-icon {
+    height: 23px;
+}
+
+nav a.stopwatch-link img.stopwatch-icon {
+    height: 25px;
+}
+
+nav a.about-link img.about-icon {
+    height: 23px;
+}
+
+/* Main content styling */
+.main-content {
+    margin-left: 200px;  /* Matches sidebar width */
+    width: calc(100% - 200px); /* Ensures the content takes the full width minus sidebar */
+    padding: 20px;
+    height: 100vh;  /* Takes full height of the viewport */
+    overflow-y: auto;  /* Allows scrolling for content */
+    background: linear-gradient(to bottom, #FFF1F1, #FFDADA); /* Optional gradient background */
+}
+
+/* Main content styling */
+.homepage-content {
+    text-align: center;
+    position: absolute; /* Use absolute positioning to ensure full coverage */
+    top: 0; /* Start at the top of the viewport */
+    left: 0; /* Aligns with the left edge of the viewport */
+    width: 100%; /* Take up the full width */
+    height: 100vh; /* Covers the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff6b6b, #ffffff);
+    color: #fff;
+    animation: fadeIn 1.5s ease-out;
+    transition: left 0.3s ease, width 0.3s ease; /* Transition for smooth effect */
+}
+
+/* Adjust for when the sidebar is open */
+.sidebar.open ~ .homepage-content {
+    left: 200px; /* Shift content to the right when sidebar is open */
+    width: calc(100% - 200px); /* Adjust width to accommodate sidebar */
+}
+
+
+.homepage-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.homepage-content p {
+    font-size: 1.5em;
+}
+        
+
+/*For profile*/
+/* Profile link container */
+.profile-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align profile content to the left */
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    position: absolute;  /* Absolute positioning to keep it in the sidebar */
+    top: 600px;  /* Position it where it was originally */
+    left: 50px;  /* Position it to the left */
+    width: 100%;  /* Full width of the sidebar */
+}
+
+.profile-link:hover{
+    color:white;
+}
+
+/* Profile picture container */
+.profile-pic-div {
+    height: 75px;
+    width: 75px;
+    position: relative;
+    top: -50px;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid grey;
+}
+
+/* Ensures profile picture fits the container */
+#photo {
+    height: 100%;
+    width: 100%;
+}
+
+/* Ensure file input and label are styled correctly */
+#file {
+    display: none;
+}
+
+/* Profile name and ID text */
+#NAME, #id {
+    position: absolute;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 50px;
+}
+
+#NAME {
+    top: -90px;
+}
+
+#id {
+    top: -50px;
+}
+
+
+#reminder-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+    width: 300px;
+}
+
+#reminder-popup h3 {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+#close-popup {
+    background-color: #ff3b3b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#close-popup:hover {
+    background-color: #d32f2f;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fef6e4; /* Soft pastel background */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.main-profile {
+    width: 700px; 
+    margin: 50px auto; /* Center the box */
+    padding: 40px; /* Add more padding for better spacing */
+    background-color: #ffffff; /* White card for the form */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow for emphasis */
+    border-radius: 20px; /* Make the corners rounder for a softer look */
+    position: relative;
+    left: 400px; /* Moves the container 50px to the left */
+    top:20px;
+}
+
+#back-button{
+    position:relative;
+    top:-100px;
+    left:650px;
+    width:40px;
+}
+
+#back-button {
+    cursor: pointer;
+    width: 50px; /* Adjust the size as needed */
+    transition: transform 0.2s ease;
+}
+
+#back-button:hover {
+    transform: scale(1.1); /* Slight zoom-in effect on hover */
+}
+
+
+
+.main-profile h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #ff7a7a; /* Soft coral for the heading */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: #6b6b6b;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    background-color: #fdf4f5; /* Very light pastel pink */
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus {
+    border-color: #ff9f9f; /* Coral pink focus effect */
+    box-shadow: 0 0 5px rgba(255, 127, 127, 0.4);
+}
+
+#save-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffa8a8; /* Coral pink button */
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#save-btn:hover {
+    background-color: #ff7a7a; /* Slightly darker coral on hover */
+}
+
+#reminder-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    text-align: center;
+    animation: popup-fade 0.3s ease;
+}
+
+#reminder-popup h3 {
+    font-size: 1.2rem;
+    color: #ff7a7a;
+    margin-bottom: 10px;
+}
+
+#reminder-popup p {
+    font-size: 0.95rem;
+    color: #6b6b6b;
+    margin-bottom: 15px;
+}
+
+#close-popup {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffa8a8;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#close-popup:hover {
+    background-color: #ff7a7a;
+}
+
+@keyframes popup-fade {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}

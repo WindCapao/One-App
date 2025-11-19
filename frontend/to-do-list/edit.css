@@ -1,0 +1,118 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F6E9E9; /* Soft pinkish background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Example of possible interfering CSS */
+input, button {
+    pointer-events: auto; /* Ensure interaction is allowed */
+    opacity: 1; /* Ensure it's visible */
+}
+
+/* Edit task container */
+.edit-task-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+/* Heading styling */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #D36E79; /* Soft pink for heading */
+}
+
+/* Form styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #D36E79; /* Soft pink for labels */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #F7D0D0; /* Light pink border */
+    font-size: 16px;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: #D36E79; /* Soft pink button */
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #C94C60; /* Slightly darker pink on hover */
+}
+
+/* Cancel button styling */
+#cancel-button {
+    background-color: #F7A8B8; /* Light soft pink for cancel button */
+    margin-top: 10px;
+}
+
+#cancel-button:hover {
+    background-color: #F07C8E; /* Slightly darker pink on hover */
+}
+
+#reminder-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+    width: 300px;
+}
+
+#reminder-popup h3 {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+#close-popup {
+    background-color: #ff3b3b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#close-popup:hover {
+    background-color: #d32f2f;
+}

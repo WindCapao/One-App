@@ -1,0 +1,499 @@
+/* General resets */
+body, html {  
+    margin: 0px;  
+    padding: 0;  
+    font-family: 'Poppins', sans-serif;  
+    min-height: 100vh;  /* Ensures the body takes full height */
+    display: flex;  /* Align the sidebar and main content horizontally */
+}
+
+/* Sidebar hidden by default on small screens */
+.sidebar {
+    width: 200px;
+    background-color: #F6E9E9;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 10px 10px 0;
+    position: fixed;
+    top: 0;
+    left: -200px; /* Initially hidden */
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease; /* Smooth transition when toggled */
+}
+
+/* Toggle button styling */
+.toggle-btn {
+    width: 50px; /* Adjust size */
+    height: 50px;
+    display: flex;
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: -50px; /* Start off to the right */
+    transition: right 0.3s ease, top 0.3s ease; /* Smooth transition */
+}
+
+/* Move the toggle button to the top-left corner when sidebar is open */
+.sidebar.open ~ #toggle-btn {
+    right: 20px;
+    top: 20px;
+}
+
+/* Sidebar when open */
+.sidebar.open {
+    left: 0; /* Show the sidebar */
+}
+
+/* Main content adjustments when sidebar is open */
+.homepage-content {
+    margin-left: 0; /* Adjust the content position */
+    width: 100%; /* Full width */
+}
+
+
+/* Logo styling inside the sidebar */
+.logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Center the logo */
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    width: 100%;
+    padding: 20px;  /* Add more padding to make the logo area bigger */
+    background-color: transparent;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 20px;  /* Space between logo and navigation links */
+}
+
+.logo a img {
+    width: 100%;  /* Ensure the image scales properly */
+    max-width: 200px;  /* Set a max width for the logo image */
+    height: auto;  /* Maintain aspect ratio */
+    margin-left: -50px;
+}
+
+/* Navigation links container */
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Individual navigation link styling */
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for navigation links */
+nav a:hover {
+    background-color: #FF6B6B;
+    color: white;
+}
+
+/* Ensure icons turn white on hover */
+nav a:hover img {
+    filter: brightness(0) invert(1); /* Makes icons white on hover */
+    transition: filter 0.3s ease;
+}
+
+/* Adjustments for individual icon sizes */
+nav a.todo-link img.todo-icon {
+    height: 20px;
+}
+
+nav a.flashcards-link img.flashcards-icon {
+    height: 25px;
+}
+
+nav a.NoteApp-link img.NoteApp-icon {
+    height: 23px;
+}
+
+nav a.stopwatch-link img.stopwatch-icon {
+    height: 25px;
+}
+
+nav a.about-link img.about-icon {
+    height: 23px;
+}
+
+/* Main content styling */
+.main-content {
+    margin-left: 200px;  /* Matches sidebar width */
+    width: calc(100% - 200px); /* Ensures the content takes the full width minus sidebar */
+    padding: 20px;
+    height: 100vh;  /* Takes full height of the viewport */
+    overflow-y: auto;  /* Allows scrolling for content */
+    background: linear-gradient(to bottom, #FFF1F1, #FFDADA); /* Optional gradient background */
+}
+
+/* Main content styling */
+.homepage-content {
+    text-align: center;
+    position: absolute; /* Use absolute positioning to ensure full coverage */
+    top: 0; /* Start at the top of the viewport */
+    left: 0; /* Aligns with the left edge of the viewport */
+    width: 100%; /* Take up the full width */
+    height: 100vh; /* Covers the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f6d365, #fda085); /* Gradient background */
+    color: #fff;
+    animation: fadeIn 1.5s ease-out;
+    transition: left 0.3s ease, width 0.3s ease; /* Transition for smooth effect */
+}
+
+/* Adjust for when the sidebar is open */
+.sidebar.open ~ .homepage-content {
+    left: 200px; /* Shift content to the right when sidebar is open */
+    width: calc(100% - 200px); /* Adjust width to accommodate sidebar */
+}
+
+
+.homepage-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.homepage-content p {
+    font-size: 1.5em;
+}
+        
+
+/*For profile*/
+/* Profile link container */
+.profile-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align profile content to the left */
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    position: absolute;  /* Absolute positioning to keep it in the sidebar */
+    top: 600px;  /* Position it where it was originally */
+    left: 50px;  /* Position it to the left */
+    width: 100%;  /* Full width of the sidebar */
+}
+
+.profile-link:hover{
+    color:white;
+}
+
+/* Profile picture container */
+.profile-pic-div {
+    height: 75px;
+    width: 75px;
+    position: relative;
+    top: -50px;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid grey;
+}
+
+/* Ensures profile picture fits the container */
+#photo {
+    height: 100%;
+    width: 100%;
+}
+
+/* Ensure file input and label are styled correctly */
+#file {
+    display: none;
+}
+
+/* Profile name and ID text */
+#NAME, #id {
+    position: absolute;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 50px;
+}
+
+#NAME {
+    top: -90px;
+}
+
+#id {
+    top: -50px;
+}
+
+
+/* Main content styling (to prevent overlap with sidebar) */
+.main-content {
+    margin-left: 250px;  /* Gives space for the sidebar */
+    padding: 20px;
+    height: 100vh;  /* Takes full height of the viewport */
+    overflow-y: auto;  /* Allows scrolling for content */
+}
+
+
+/* To-Do List section */
+.todo-section {
+    margin-top: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+.todo-section h3 {
+    font-size: 18px;
+    color: #f96e6e;
+    margin-bottom: 10px;
+}
+
+.todo-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.todo-section ul li {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* To-Do List page styles */
+#todo-page {
+    text-align: center;
+    padding: 20px;
+}
+
+#todo-page h3 {
+    font-size: 20px;
+    color: #f96e6e;
+    margin-bottom: 20px;
+}
+
+.todo-image {
+    width: 60%;
+    max-width: 200px;
+    margin-top: 5px;
+    border-radius: 5px;
+    display: block;
+    margin-right: 20px; /* Adds some space to the right */
+    position: absolute;
+    left: 300px;
+}
+
+body.sidebar-closed .todo-image {
+    transform: translateX(200px); /* Move image when sidebar is closed */
+}
+
+body.sidebar-open .todo-image {
+    transform: translateX(20px); /* Keep image in place when sidebar is open */
+}
+
+
+.addtask-image {
+    width: 60%;
+    max-width: 150px;
+    margin-top: 20px; /* Adds space from the "To-Do" image */
+    margin-bottom: 20px; /* Optional: Adds space at the bottom of the image */
+    border-radius: 5px;
+    display: block;
+    clear: both; /* Clears the float, making the image appear below the previous one */
+    position: absolute;
+    left: 300px;
+    top: 50px;
+}
+
+#taskForm {
+    position: absolute; /* Allows for absolute positioning inside this container */
+    right: 100px;
+    top: 100px;
+    width: 800px;
+    height: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background-color: #F6E9E9;
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Label styling */
+label {
+    margin-top: 5px;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px; /* Increased margin for better spacing */
+    text-align: left; /* Align labels to the left */
+    position: relative;
+    display: flex;
+    align-items: center; /* Centers the label text and image vertically */
+}
+
+/* Styling for images inside labels */
+label img {
+    width: px; /* Adjust the size of the image */
+    height: 10px; /* Height set to 20px */
+    vertical-align: middle; /* Align the image vertically with the text */
+    margin-right: 15px; /* Adds space between the image and the input field */
+    margin-left: 10px; /* Adds space between the image and the input field */
+    margin-top: 5px; /* Adjust the top margin of the image here */
+    margin-bottom: 0px; /* Adjust the bottom margin of the image here */
+}
+
+/* For input styling */
+input[type="text"] {
+    width: 97%; /* Keeps text input at 80% width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 12px; /* Soft edges */
+    margin-right: 7px; /* Adds space between the image and the input field */
+    margin-left: 0px; /* Adds space between the image and the input field */
+    margin-top: 5px; /* Adjust the top margin */
+    margin-bottom: 0px; /* Adjust the bottom margin */
+} 
+
+/* Specific styling for the date input form group */
+.form-group #dueDate {
+    width: 15%; /* Reduced width for the due date input */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 12px; /* Soft edges */
+    margin-right: 7px; /* Adds space between the image and the input field */
+    margin-left: 7px; /* Aligns the input box to the left */
+    margin-top: 5px; /* Adjusts the top margin */
+    margin-bottom: 0px; /* Adjusts the bottom margin */
+    text-align: left; /* Aligns the text inside the date input */
+    display: inline-block; /* Keeps the input from stretching */
+}
+
+/* Aligns the form group for the due date input only */
+.form-group.due-date {
+    text-align: left; /* Aligns only the container of the due date input to the left */
+    width: 100%; /* Ensures the form group takes up full width */
+}
+
+/* Adjust the image inside the label only for due date */
+.form-group.due-date label img {
+    width: 58px; /* Adjust image size */
+    height: 10px; /* Adjust image size */
+    margin-right: 10px; /* Adds space between image and input */
+    vertical-align: middle; /* Aligns the image vertically with the label text */
+}
+
+
+/* Button icon inside the button (image) */
+button img {
+    width: 24px; /* Increase image width to make it more prominent */
+    height: 12px; /* Increase image height to make it more prominent */
+    margin-right: 8px; /* Adjust spacing between text and icon */
+    transition: filter 0.2s ease; /* Smooth transition for image */
+    filter: brightness(0) invert(1); /* Makes the image bold when white */
+}
+
+/* General container styling (optional, for layout adjustment) */
+.container {
+    position: relative;
+    padding: 20px;
+}
+
+/* Add Task Button */
+#addTaskButton {
+    background-color: #ff6347; /* Original button color */
+    color: #fff; /* White text */
+    text-decoration: none; /* Remove underline */
+    border: none; 
+    padding: 15px 25px; /* Button padding */ 
+    border-radius: 20px; /* Rounded edges */
+    cursor: pointer;
+    font-size: 20px; /* Font size */
+    font-weight: bold; /* Bold text */
+    display: flex; /* Flexbox layout for alignment */
+    align-items: center; /* Center icon and text vertically */
+    justify-content: center; /* Center content horizontally */
+    gap: 8px; /* Spacing between icon and text */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+    position: absolute; /* Optional: Adjust placement */
+    bottom: -15px; /* Positioning */
+    right: 40px; /* Positioning */
+}
+
+/* Hover effect for the button */
+#addTaskButton:hover {
+    background-color: #f96e6e; /* Change color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Active (click) effect */
+#addTaskButton:active {
+    background-color: #ff6347; /* Revert to original color */
+}
+
+/* Icon inside the button */
+#addTaskButton img {
+    width: 80px; /* Icon size */
+    height: 11px; /* Icon size */
+    transition: filter 0.2s ease; /* Smooth image effect */
+}
+
+/* Icon effect on button click */
+#addTaskButton:active img {
+    filter: brightness(0) invert(1); /* Turn icon white when clicked */
+}
+
+#reminder-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+    width: 300px;
+}
+
+#reminder-popup h3 {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+#close-popup {
+    background-color: #ff3b3b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#close-popup:hover {
+    background-color: #d32f2f;
+}

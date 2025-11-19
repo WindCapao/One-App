@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Flashcards</title>
+    <link rel="stylesheet" href="addflashcard.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <a href="../main/index.html">
+                <img src="images/oneapp-logo.png" alt="OneApp Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="/To-do-list/todo.html" class="todo-link">
+                <img src="images/todo-icon.png" alt="To-Do" class="todo-icon">
+            </a>
+            <a href="/flashcards/flashcards.html" class="flashcards-link">
+                <img src="images/flashcards-icon.png" alt="Flashcards" class="flashcards-icon">
+            </a>
+            <a href="../NoteApp/displayNotes.html" class="NoteApp-link"> 
+                <img src="images/Note App logo.png" alt="NoteApp Icon" class="NoteApp-icon">
+            </a>
+            <a href="../stopwatch/stopwatch.html" class="stopwatch-link">
+                <img src="images/Clock APP logo.png" alt="stopwatch Icon" class="stopwatch-icon">
+            </a>
+            <a href="../about-page/about-page.html" class="about-link">
+                <img src="images/about-icon.png" alt="About Icon" class="about-icon">
+            </a> 
+        </nav>
+
+        <!-- Profile link inside the navigation -->
+        <a href="../profile/profile.html" class="profile-link">
+            <div class="profile-pic-div">
+                <img src="images/logo.png" id="photo" alt="Profile Picture">
+            </div>
+            <p id="NAME">Test name</p>
+            <p id="id">ID:</p>
+        </a>
+
+        <img src="images/logo.png" alt="Toggle Sidebar" id="toggle-btn" class="toggle-btn"> 
+    </div>
+
+    <h1>Add Flashcards</h1>
+
+<!-- Main Content -->
+<div class="main">
+
+    <!-- Add Flashcards Form -->
+    <div id="flashcard-form">
+        <h2>New Flashcards</h2>
+        <form id="flashcard-form-content" aria-label="Flashcard Form">
+            <!-- Flashcard Input Section -->
+            <div class="flashcard-entry">
+                <input type="text" class="question" placeholder="Enter your question">
+                <textarea class="answer" placeholder="Enter the answer"></textarea>
+            </div>
+        
+            <!-- Navigation Buttons Section -->
+            <div id="form-navigation-buttons">
+                <span id="flashcard-counter"></span> <!-- Counter will be displayed here -->
+
+                <button type="button" id="prev-flashcard-btn" aria-label="Previous Flashcard">Previous</button>
+                <button type="button" id="next-flashcard-btn" aria-label="Next Flashcard">Next</button>
+                <button type="submit" id="finish-flashcard-btn" aria-label="Finish and Submit Flashcards">Finish</button>
+            </div>
+
+                    <!-- Navigation Buttons -->
+        <div id="navigation-buttons">
+            <button id="back-to-categories" onclick="goBackToCategories()">Back</button>
+        </div>
+
+        </form>
+    </div>
+
+    
+</div>
+        <div class="container">
+            <div id="reminder-msg" style="display:none;"></div>
+    
+            <!-- Reminder Popup -->
+            <div id="reminder-popup">
+                <h3>Reminder Triggered!</h3>
+                <p>Your reminder time has come!</p>
+                <button id="close-popup">Close</button>
+            </div>
+        </div>
+    
+
+    <script src="addflashcard.js"></script>
+</body>
+</html>

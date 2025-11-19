@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <link rel="stylesheet" href="to-do-list.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <a href="../main/index.html">
+                <img src="images/oneapp-logo.png" alt="OneApp Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="../To-do-list/to-do-list.html" class="todo-link">
+                <img src="images/todo-icon.png" alt="To-Do Icon" class="todo-icon">
+            </a>
+            <a href="../flashcards/flashcards.html" class="flashcards-link">
+                <img src="images/flashcards-icon.png" alt="Flashcards Icon" class="flashcards-icon">
+            </a>
+            <a href="../NoteApp/displayNotes.html" class="NoteApp-link"> 
+                <img src="images/Note App logo.png" alt="NoteApp Icon" class="NoteApp-icon">
+            </a>
+            <a href="../stopwatch/stopwatch.html" class="stopwatch-link">
+                <img src="images/Clock APP logo.png" alt="stopwatch Icon" class="stopwatch-icon">
+            </a>
+            <a href="../about-page/about-page.html" class="about-link">
+                <img src="images/about-icon.png" alt="About Icon" class="about-icon">
+            </a> 
+        </nav>
+
+                <!-- Profile link inside the navigation -->
+                <a href="../profile/profile.html" class="profile-link">
+                    <div class="profile-pic-div">
+                        <img src="images/logo.png" id="photo" alt="Profile Picture">
+                    </div>
+                    <p id="NAME">Test name</p>
+                    <p id="id">ID:</p>
+                </a>
+        
+        <img src="images/logo.png" alt="Toggle Sidebar" id="toggle-btn" class="toggle-btn">   
+    </div>
+        
+    <div id="taskLists">
+        <img class="icontodo" src="/To-do-list/images/to-do.png" alt="To-do Icon">
+        
+        <div id="buttons">
+            <button id="assignedBtn">Assigned (<span id="assigned-count">0</span>)</button>
+            <button id="missingBtn">Missing (<span id="missing-count">0</span>)</button>
+            <button id="finishedBtn">Finished (<span id="finished-count">0</span>)</button>
+        </div>    
+
+        <!-- Placeholder for Status Messages -->
+        <div id="status-message" style="display: none; text-align: center; font-size: 18px; margin-left: 300px; margin-top: 100px;"></div>
+
+
+        <!-- To-Do, Missing, and Completed Lists -->
+        <div id="taskListContainer" class="task-list-container">
+            <ul id="missing"></ul>
+            <ul id="assigned"></ul>
+            <ul id="finished"></ul>
+        </div>
+
+        <!-- Dynamic Task List -->
+        <ul id="taskList" class="task-list">
+            <!-- Tasks will be dynamically added here -->
+        </ul>        
+
+        <!-- Floating button for adding tasks -->
+        <div class="add-button">
+            <a href="/to-do/to-do.html">
+                <img src="images/addtaskbutton.png" alt="Add Task">
+            </a>
+        </div>
+    </div>    
+
+    <div class="container">
+        <div id="reminder-msg" style="display:none;"></div>
+
+        <!-- Reminder Popup -->
+        <div id="reminder-popup">
+            <h3>Reminder Triggered!</h3>
+            <p>Your reminder time has come!</p>
+            <button id="close-popup">Close</button>
+        </div>
+    </div>
+
+
+    <!-- Ensure your script runs after the DOM is loaded -->
+    <script src="to-do-list.js"></script>
+</body>
+</html>

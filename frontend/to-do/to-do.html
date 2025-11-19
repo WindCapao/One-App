@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO PAGE</title>
+    <link rel="stylesheet" href="to-do.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <a href="../main/index.html">
+                <img src="images/oneapp-logo.png" alt="OneApp Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="../To-do-list/to-do-list.html" class="todo-link">
+                <img src="images/todo-icon.png" alt="To-Do Icon" class="todo-icon">
+            </a>
+            <a href="../flashcards/flashcards.html" class="flashcards-link">
+                <img src="images/flashcards-icon.png" alt="Flashcards Icon" class="flashcards-icon">
+            </a>
+            <a href="/about-page/about-page.html" class="about-link">
+                <img src="images/about-icon.png" alt="About Icon" class="about-icon">
+            </a>
+            <div class="profile-pic-div">
+                <img src="/main/images/logo.png" id="photo">
+                <input type="file" id="file">
+                <label for="file" id="uploadBtn">Choose Photo</label>
+            </div>
+            <p id="NAME">Test name</p>
+            <p id="id">ID:</p>
+        </nav>
+        <img src="images/logo.png" alt="Toggle Sidebar" id="toggle-btn" class="toggle-btn"> 
+    </div>
+    
+    <!-- Content Section -->
+    <div id="content">
+        <!-- To-Do Page -->
+        <div id="todo-page" class="page">
+            <img src="./images/to-do.png" alt="To-Do List Image" class="todo-image">
+            <img src="./images/addtask.png" alt="Add Task Image" class="addtask-image">
+
+            <!-- Wrapper to center the form -->
+            <div class="form-container">
+                <form id="taskForm" action="http://localhost:3000/api/tasks" method="POST" autocomplete="on">
+                    <div class="form-group">
+                        <label for="taskName">
+                            <img src="images/taskname.png" alt="Task Name">
+                        </label>
+                        <input type="text" id="taskName" name="taskName" maxlength="30" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskSubject">
+                            <img src="images/tasksub.png" alt="Task Subject">
+                        </label>
+                        <input type="text" id="taskSubject" name="taskSubject" maxlength="30" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="submissionPlatform">
+                            <img src="images/subpla.png" alt="Submission Platform">
+                        </label>
+                        <input type="text" id="submissionPlatform" name="submissionPlatform">
+                    </div>
+                    <div class="form-group due-date">
+                        <label for="dueDate">
+                            <img src="images/duedate.png" alt="Due Date">
+                        </label>
+                        <input type="date" id="dueDate" name="dueDate" required>
+                    </div>
+                    <!-- Button for submitting the form -->
+                    <button type="submit" id="addTaskButton">
+                        <img src="images/addtask2.png" alt="Add Task">
+                    </button>
+                </form>                
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div id="reminder-msg" style="display:none;"></div>
+
+        <!-- Reminder Popup -->
+        <div id="reminder-popup">
+            <h3>Reminder Triggered!</h3>
+            <p>Your reminder time has come!</p>
+            <button id="close-popup">Close</button>
+        </div>
+    </div>
+
+
+    <script src="to-do.js"></script>
+</body>
+</html>

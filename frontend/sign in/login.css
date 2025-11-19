@@ -1,0 +1,196 @@
+body{ 
+    margin: 0;
+    padding: 0;
+    background-image: url(/pictures/bg2.jfif);
+    background-repeat: no-repeat;
+    background-size: 800px;
+    overflow:hidden;
+}
+
+
+/*for logo and nav bar */
+.navigation img{
+     width: 300px;
+     mix-blend-mode: multiply;
+     position: absolute;
+     top: 10px;
+     left: 30px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.navigation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navigation a {
+    color: #9C1A1A;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 10px 20px;
+    border-radius: 15px; 
+    border: 1px solid transparent;
+    transition: background-color 0.3s, padding 0.3s, border-radius 0.3s;
+    display: inline-block;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.navigation a:hover{
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid maroon;
+    color: maroon;
+    padding: 5px 20px;
+    width:89px;
+}
+
+/* sign in form*/
+.sign-in-form{
+    background-color: rgba(244, 232, 232, 255);
+    padding: 15px;
+    border-radius: 20px;
+    width: 440px;
+    height:390px;
+    margin:20px 20px 0 auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    float: right;
+    position: absolute;
+    top: 110px;
+    right: 35px;
+}
+
+.sign-in-form h3{
+    font-family: sans-serif;
+    margin-top: 0;
+    text-align: center;
+    font-size: 25px;
+    color: rgba(152, 22, 22, 255); 
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.form{
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    text-align: left;
+    font-size: 15px;
+    right: 20px;
+}
+
+.form label{
+    display: block;
+    margin-bottom: 5px;
+    color: rgba(165, 75, 74, 255)
+}
+
+.form input{
+    height: 65px;
+    width: 380px;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 0px 20px;
+    border-radius: 20px;
+    display:inline-block;
+    border:none;
+}
+
+.form img{
+    position: absolute;
+    width: 30px;
+    cursor: pointer;
+    top: 230px;
+    right: 30px;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Add transition for smooth visibility change */
+}
+
+
+.button{
+    height: 50px;
+    width: 250px;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 0px;
+    border-radius: 20px;
+    color:white;
+    border: none;
+    box-shadow: 10px;
+    cursor: pointer;
+    display: inline-block;
+    background-color: maroon;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 2);
+}
+
+.sign-in-form p{
+    margin:10px 0;
+    font-size: 15px;
+    color:maroon;
+    text-decoration: none;
+}
+
+.sign-in-form a{
+    color:maroon;
+    text-decoration:none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.sign-in-form a:hover{
+    text-decoration: underline;
+}
+
+
+/* design*/
+.design{
+    position: absolute;
+    object-fit: contain;
+    width: 1020px;
+    height: 750px;
+    top: -75px;
+    right: 375px;
+    filter: brightness(1.0);
+}
+
+
+/* when on mobile */
+@media(max-width:768px){
+    .navigation img{
+        background-color: transparent;
+        mix-blend-mode: multiply;
+    }
+
+    .navigation{
+        position: fixed;
+        top:0;
+        width: 100%;
+        z-index: 10;
+        padding: 10px 20px;
+    }
+
+    .design{
+        display:none;
+    }
+
+    .sign-in-form{
+        position: absolute;
+        top: 80px;
+        right: 50px;
+    }
+
+    .form img{
+        top: 210px;
+        right: 25px;
+    }
+}

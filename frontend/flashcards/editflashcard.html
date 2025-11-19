@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Flashcard - OneApp</title>
+    <link rel="stylesheet" href="editflashcard.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <a href="../main/index.html">
+                <img src="images/oneapp-logo.png" alt="OneApp Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="../To-do-list/to-do-list.html" class="todo-link">
+                <img src="images/todo-icon.png" alt="To-Do Icon" class="todo-icon">
+            </a>
+            <a href="../flashcards/flashcards.html" class="flashcards-link">
+                <img src="images/flashcards-icon.png" alt="Flashcards Icon" class="flashcards-icon">
+            </a>
+            <a href="../NoteApp/displayNotes.html" class="NoteApp-link"> 
+                <img src="images/Note App logo.png" alt="NoteApp Icon" class="NoteApp-icon">
+            </a>
+            <a href="../stopwatch/stopwatch.html" class="stopwatch-link">
+                <img src="images/Clock APP logo.png" alt="stopwatch Icon" class="stopwatch-icon">
+            </a>
+            <a href="../about-page/about-page.html" class="about-link">
+                <img src="images/about-icon.png" alt="About Icon" class="about-icon">
+            </a> 
+        </nav>
+
+                <!-- Profile link inside the navigation -->
+                <a href="../profile/profile.html" class="profile-link">
+                    <div class="profile-pic-div">
+                        <img src="images/logo.png" id="photo" alt="Profile Picture">
+                    </div>
+                    <p id="NAME">Test name</p>
+                    <p id="id">ID:</p>
+                </a>
+        
+        <img src="images/logo.png" alt="Toggle Sidebar" id="toggle-btn" class="toggle-btn"> 
+    </div>
+
+    <div class="content">
+        <h1>Edit Flashcard</h1>
+        <form id="edit-flashcard-form">
+            <div>
+                <label for="flashcard-question">Question</label>
+                <input type="text" id="flashcard-question" placeholder="Enter your flashcard question">
+            </div>
+            <div>
+                <label for="flashcard-answer">Answer</label>
+                <textarea id="flashcard-answer" placeholder="Enter your flashcard answer"></textarea>
+            </div>
+            <button type="button" id="save-flashcard-btn">Save Flashcard</button>
+        </form>
+        <!-- Back buttons -->
+        <div class="back-buttons">
+            <button id="back-btn">Back to Flashcards</button>
+            <button id="back-to-categories-btn">Back to Categories</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="reminder-msg" style="display:none;"></div>
+
+        <!-- Reminder Popup -->
+        <div id="reminder-popup">
+            <h3>Reminder Triggered!</h3>
+            <p>Your reminder time has come!</p>
+            <button id="close-popup">Close</button>
+        </div>
+    </div>
+
+    
+    <script src="editflashcard.js"></script>
+</body>
+</html>

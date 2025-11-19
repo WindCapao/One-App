@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneApp Login Page</title>
+    <link rel="stylesheet" href="../sign in/login.css">
+</head>
+<body>
+    <!-- Nav bar -->
+    <nav class="navigation">
+        <img src="/pictures/logo.jfif" alt="OneApp Logo" id="logo">
+        <ul>
+            <li><a href="./about & agreement/aboutpage.html">About</a></li>
+            <li><a href="./Sign up/Signup.html">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sign-in form -->
+    <div class="sign-in-form">
+        <h3>Log in to your account</h3>
+        <form action="/api/login" method="POST" id="loginForm"> <!-- Set action to the backend route -->
+            <div class="form">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="form">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <img src="/pictures/Hidepass.png" id="eyeicon" style="cursor: pointer;" alt="Toggle password visibility" aria-label="Show/Hide password">
+            </div>
+
+            <br>
+            <div class="button-container">
+                <input type="submit" class="button" value="Log in"> <!-- Direct form submission -->
+            </div>
+            
+            <br>
+            <p>Don't have an account?<br>
+                <a href="./Sign up/Signup.html" >Sign up</a>
+            </p>
+        </form>
+    </div>
+
+    <img class="design" src="/pictures/Pic.png" alt="Decorative design element">
+
+    <!-- JS -->
+    <script src="/frontend/sign in/login.js"></script>
+
+</body>
+</html>

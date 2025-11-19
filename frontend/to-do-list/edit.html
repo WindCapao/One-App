@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="edit.css">  <!-- Link to the CSS file -->
+</head>
+<body>
+    <div class="edit-task-container">
+        <h2>Edit Task</h2>
+        <form id="edit-task-form">
+            <div class="form-group">
+                <label for="task_name">Task Name:</label>
+                <input type="text" id="task_name" name="task_name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="task_subject">Task Subject:</label>
+                <input type="text" id="task_subject" name="task_subject" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="due_date">Due Date:</label>
+                <input type="date" id="due_date" name="due_date" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="submission_platform">Submission Platform:</label>
+                <input type="text" id="submission_platform"  name="submission_platform">
+            </div>
+
+            <!-- Hidden input for task ID -->
+            <input type="hidden" id="task-id" value="task_id_here">  <!-- Populate task ID dynamically -->
+            
+            <button type="submit" id="submit-button">Save Changes</button>
+        </form>
+        <button id="cancel-button" onclick="window.location.href='to-do-list.html';">Cancel</button>
+    </div>
+
+    <div class="container">
+        <div id="reminder-msg" style="display:none;"></div>
+
+        <!-- Reminder Popup -->
+        <div id="reminder-popup">
+            <h3>Reminder Triggered!</h3>
+            <p>Your reminder time has come!</p>
+            <button id="close-popup">Close</button>
+        </div>
+    </div>
+
+
+    <script src="edit.js"></script>  <!-- Link to the JS file -->
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneApp Sign Up Page</title>
+    <link rel="stylesheet" href="./Sign up/signup.css">
+</head>
+
+<body>
+
+    <!-- Nav bar -->
+    <nav class="navigation">
+        <img src="/pictures/logo.jfif" alt="OneApp Logo">
+        <ul>
+            <li><a href="../sign in/login.html">Sign In</a></li>
+        </ul>
+    </nav>
+
+    <!-- Form -->
+    <div class="sign-up-form">
+        <h3>Set up an account</h3>
+        <form id="signupform" action="/api/signup" method="POST" autocomplete="on">
+            <div class="form">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username">
+            </div>
+        
+            <div class="form">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+        
+            <div class="form">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+                <img src="/pictures/Hidepass.png" id="eyeicon" style="cursor: pointer;" alt="Toggle password visibility" aria-label="Show/Hide password">
+            </div>
+        
+            <div class="checkbox-container">
+                <input type="checkbox" name="agreement" value="yes" id="agreement" title="Check to agree to the terms">
+            </div>
+        
+            <p class="A1">By continuing, you agree to OneApp's</p>
+            <a class="A2" href="../about & agreement/Agreement.html">Terms and Conditions.</a>
+            <p class="A3">Read our</p>
+            <a class="A4" href="../about & agreement/Agreement.html">Privacy Policy.</a>
+        
+            <div class="button-container">
+                <input type="submit" class="button" name="submit" value="Sign Up" id="submitBtn" disabled>
+            </div>
+        </form>
+        
+        
+    </div>
+
+    <!-- JS -->
+    <script src="./Sign up/signup.js"></script>
+
+</body>
+
+</html>

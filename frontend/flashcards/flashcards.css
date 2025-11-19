@@ -1,0 +1,430 @@
+/* General resets */
+body, html {  
+    margin: 0px;  
+    padding: 0;  
+    font-family: 'Poppins', sans-serif;  
+    min-height: 100vh;
+    display: flex;  /* Align the sidebar and main content horizontally */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 200px;
+    background-color: #F6E9E9;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 10px 10px 0;
+    position: fixed;
+    top: 0;
+    left: -200px; /* Initially hidden */
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+
+/* Sidebar open state */
+.sidebar.open {
+    left: 0; /* Reveal the sidebar */
+}
+
+/* Logo styling inside the sidebar */
+.logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Center the logo */
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    width: 100%;
+    padding: 20px;  /* Add more padding to make the logo area bigger */
+    background-color: transparent;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 20px;  /* Space between logo and navigation links */
+}
+
+.logo a img {
+    width: 100%;  /* Ensure the image scales properly */
+    max-width: 200px;  /* Set a max width for the logo image */
+    height: auto;  /* Maintain aspect ratio */
+    margin-left: -50px;
+}
+
+/* Navigation links container */
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Individual navigation link styling */
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for navigation links */
+nav a:hover {
+    background-color: #FF6B6B;
+    color: white;
+}
+
+/* Ensure icons turn white on hover */
+nav a:hover img {
+    filter: brightness(0) invert(1); /* Makes icons white on hover */
+    transition: filter 0.3s ease;
+}
+
+/* Adjustments for individual icon sizes */
+nav a.todo-link img.todo-icon {
+    height: 20px;
+}
+
+nav a.flashcards-link img.flashcards-icon {
+    height: 25px;
+}
+
+nav a.NoteApp-link img.NoteApp-icon {
+    height: 23px;
+}
+
+nav a.stopwatch-link img.stopwatch-icon {
+    height: 25px;
+}
+
+nav a.about-link img.about-icon {
+    height: 23px;
+}
+
+
+
+/* Toggle button styling */
+.toggle-btn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 20px;
+    right: -50px;
+    transition: right 0.3s ease, top 0.3s ease;
+}
+
+/* Adjust toggle button position when sidebar is open */
+.sidebar.open ~ #toggle-btn {
+    right: 20px;
+    top: 20px;
+}
+
+/* Main content styling (default: sidebar closed) */
+.homepage-content, 
+.coming-soon-container {
+    position: absolute;
+    top: 0;
+    left: 0; /* Fill the entire screen */
+    width: 100%; /* Full screen width */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f6d365, #fda085); /* Gradient background */
+    color: #fff;
+    text-align: center;
+    transition: left 0.3s ease, width 0.3s ease;
+}
+
+/* Adjust when sidebar is open */
+.sidebar.open ~ .homepage-content,
+.sidebar.open ~ .coming-soon-container {
+    left: 200px; /* Shift content to the right */
+    width: calc(100% - 200px); /* Adjust width */
+}
+
+/* Shared styles for headings and paragraphs */
+.homepage-content h1, 
+.coming-soon-container h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.homepage-content p, 
+.coming-soon-container p {
+    font-size: 1.5em;
+}
+
+/* Coming soon button */
+.coming-soon-btn {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #FF6B6B;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.coming-soon-btn:hover {
+    background-color: #FF4A4A;
+    transform: scale(1.1);
+}
+
+
+/*For profile*/
+.profile-pic-div{
+    height: 75px;
+    width: 75px;
+    position:absolute;
+    top:550px;
+    left:50px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow:hidden;
+    border: 1px solid grey;
+}
+
+
+#photo{
+    height: 100%;
+    width: 100%;
+}
+
+
+#file{
+    display:none;
+}
+
+
+#uploadBtn{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    line-height: 30px;;
+    font-family: sans-serif;
+    font-size: 15px;
+    cursor:pointer;
+    display: none;
+}
+
+
+#NAME{
+    position: absolute;
+    top:510px;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 100px;
+}
+
+
+#id{
+    position: absolute;
+    top:550px;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 100px;
+}
+
+/* Style for the h1 element */
+h1 {
+    font-size: 32px;               /* Larger font size for the title */
+    color: #dc6464;                /* Soft pink color for the title text */
+    text-align: center;            /* Center align the title */
+    font-family: 'Arial', sans-serif; /* Use a clean sans-serif font */
+    font-weight: bold;             /* Make the title bold */
+    margin-top: 40px;              /* Add space from the top */
+    margin-bottom: 20px;           /* Add space from the bottom */
+    margin-left: 60px;             /* Add 60px margin to the left */
+    text-transform: uppercase;     /* Make the text uppercase */
+    letter-spacing: 2px;           /* Increase letter spacing for style */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+}
+
+/* Positioning the button in the lower-right corner */
+#add-category-button {
+    position: fixed;  /* Fixed position so it stays in the corner even when scrolling */
+    bottom: 20px;     /* 20px from the bottom */
+    right: 20px;      /* 20px from the right */
+    background-color: #FFC0CB;  /* Hot pink background */
+    color: black;     /* White text */
+    padding: 10px 20px;  /* Add padding around the text */
+    border: none;     /* Remove default button border */
+    border-radius: 50px;  /* Rounded corners for a circular effect */
+    font-size: 16px;  /* Adjust font size */
+    display: flex;
+    align-items: center; /* Vertically center the plus icon and text */
+    justify-content: center; /* Horizontally center */
+    cursor: pointer;  /* Pointer cursor when hovered */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);  /* Subtle shadow for depth */
+}
+
+/* Style for the plus icon */
+.plus-icon {
+    font-size: 24px;  /* Bigger font size for the plus symbol */
+    margin-right: 8px;  /* Space between the icon and the text */
+}
+
+/* Button hover effect */
+#add-category-button:hover {
+    background-color: #FFB6C1;  /* Light pink color when hovered */
+}
+
+
+/* Flashcard Form Styles */
+.flashcard-form {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 400px;  /* Reduced width to 400px */
+    width: 100%;  /* Ensure it doesn't exceed its container's width */
+    margin-left: auto; /* Center the form */
+    margin-right: auto; /* Center the form */
+}
+
+/* Flashcard Item Styles */
+.flashcard-item {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    border-radius: 5px;
+    max-width: 400px;  /* Reduced width to 400px */
+    width: 100%;  /* Ensure it doesn't exceed its container's width */
+    margin-left: auto; /* Center the item */
+    margin-right: auto; /* Center the item */
+}
+
+/* Category Item Styles */
+.category-item {
+    padding: 10px;
+    background-color: #f1f1f1;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    max-width: 400px;  /* Reduced width to 400px */
+    width: 100%;  /* Ensure it doesn't exceed its container's width */
+    margin-left: auto; /* Center the item */
+    margin-right: auto; /* Center the item */
+}
+
+/* No Flashcards Message */
+#no-flashcards-message {
+    text-align: center;
+    margin-top: 20px;
+    max-width: 400px;  /* Reduced width to 400px */
+    width: 100%;  /* Ensure it doesn't exceed its container's width */
+    margin-left: auto; /* Center the message */
+    margin-right: auto; /* Center the message */
+}
+
+/* Adjust the categories container to use Flexbox */
+#categories-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of items to the next line */
+    justify-content: flex-start; /* Align items to the start of the container */
+    gap: 20px; /* Add space between category items */
+    width: 100%; /* Ensure full width of the container */
+    max-width: 1200px; /* Limit the maximum width */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Category Item Styles */
+.category-item {
+    padding: 10px;
+    background-color: #FFC0CB;  /* Light pink background */
+    border-radius: 8px;  /* Rounded corners for each category item */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);  /* Light shadow */
+    position: relative; /* Positioning for the icons */
+    flex: 1 1 calc(25% - 20px); /* Allow items to grow and shrink, 25% of the container width */
+    max-width: 250px;  /* Optional: Limit the width of each category item */
+    box-sizing: border-box;  /* Include padding and border in the width */
+    display: flex; /* Ensure item content is flexbox-aware */
+    flex-direction: column; /* Ensure vertical stacking inside each item */
+}
+
+/* Adjust font size for category name */
+.category-item h3 {
+    font-size: 22px;  /* Adjusted title size */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Category item buttons */
+.edit-category-btn, .delete-category-btn {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 10px;
+}
+
+.edit-category-btn {
+    right: 30px;
+}
+
+.delete-category-btn {
+    right: 10px;
+}
+
+#no-flashcards-message button:hover {
+    background-color: #2980b9;
+}
+
+.flashcard-count {
+    color: white;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#reminder-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+    width: 300px;
+}
+
+#reminder-popup h3 {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+#close-popup {
+    background-color: #ff3b3b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#close-popup:hover {
+    background-color: #d32f2f;
+}

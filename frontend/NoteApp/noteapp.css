@@ -1,0 +1,484 @@
+/* General resets */
+body, html {  
+    margin: 0px;  
+    padding: 0;  
+    font-family: 'Poppins', sans-serif;  
+    min-height: 100vh;
+    display: flex;  /* Align the sidebar and main content horizontally */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 200px;
+    background-color: #F6E9E9;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 10px 10px 0;
+    position: fixed;
+    top: 0;
+    left: -200px; /* Initially hidden */
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+
+/* Sidebar open state */
+.sidebar.open {
+    left: 0; /* Reveal the sidebar */
+}
+
+/* Logo styling inside the sidebar */
+.logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Center the logo */
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    width: 100%;
+    padding: 20px;  /* Add more padding to make the logo area bigger */
+    background-color: transparent;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 20px;  /* Space between logo and navigation links */
+}
+
+.logo a img {
+    width: 100%;  /* Ensure the image scales properly */
+    max-width: 200px;  /* Set a max width for the logo image */
+    height: auto;  /* Maintain aspect ratio */
+    margin-left: -50px;
+}
+
+/* Navigation links container */
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Individual navigation link styling */
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for navigation links */
+nav a:hover {
+    background-color: #FF6B6B;
+    color: white;
+}
+
+/* Ensure icons turn white on hover */
+nav a:hover img {
+    filter: brightness(0) invert(1); /* Makes icons white on hover */
+    transition: filter 0.3s ease;
+}
+
+/* Adjustments for individual icon sizes */
+nav a.todo-link img.todo-icon {
+    height: 20px;
+}
+
+nav a.flashcards-link img.flashcards-icon {
+    height: 25px;
+}
+
+nav a.NoteApp-link img.NoteApp-icon {
+    height: 23px;
+}
+
+nav a.stopwatch-link img.stopwatch-icon {
+    height: 25px;
+}
+
+nav a.about-link img.about-icon {
+    height: 23px;
+}
+
+
+
+/* Toggle button styling */
+.toggle-btn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 20px;
+    right: -50px;
+    transition: right 0.3s ease, top 0.3s ease;
+}
+
+/* Adjust toggle button position when sidebar is open */
+.sidebar.open ~ #toggle-btn {
+    right: 20px;
+    top: 20px;
+}
+
+/* Main content styling (default: sidebar closed) */
+.homepage-content, 
+.coming-soon-container {
+    position: absolute;
+    top: 0;
+    left: 0; /* Fill the entire screen */
+    width: 100%; /* Full screen width */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f6d365, #fda085); /* Gradient background */
+    color: #fff;
+    text-align: center;
+    transition: left 0.3s ease, width 0.3s ease;
+}
+
+/* Adjust when sidebar is open */
+.sidebar.open ~ .homepage-content,
+.sidebar.open ~ .coming-soon-container {
+    left: 200px; /* Shift content to the right */
+    width: calc(100% - 200px); /* Adjust width */
+}
+
+/* Shared styles for headings and paragraphs */
+.homepage-content h1, 
+.coming-soon-container h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/*For profile*/
+.profile-pic-div{
+    height: 75px;
+    width: 75px;
+    position:absolute;
+    top:550px;
+    left:50px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow:hidden;
+    border: 1px solid grey;
+}
+
+
+#photo{
+    height: 100%;
+    width: 100%;
+}
+
+
+#file{
+    display:none;
+}
+
+
+#uploadBtn{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    line-height: 30px;;
+    font-family: sans-serif;
+    font-size: 15px;
+    cursor:pointer;
+    display: none;
+}
+
+
+#NAME{
+    position: absolute;
+    top:510px;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 100px;
+}
+
+
+#id{
+    position: absolute;
+    top:550px;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 100px;
+}
+
+/* General styles for the main container */
+#main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.header {
+    position: fixed;
+    top: 20px;  /* Adjusts the vertical position */
+    left: 80px;  /* 80px from the left */
+    font-size: 34px;  /* Adjusts the font size */
+    font-weight: bold;  /* Makes the font bold */
+    color: #dc6464;  /* Sets a dark color for the text */
+    padding: 10px 15px;  /* Adds some padding around the text */
+    border-radius: 5px;  /* Rounds the corners */
+}
+
+
+
+/* Note card styling */
+.note {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Icons (Save, Trash) */
+.icons {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    gap: 10px;
+    background-color: #f1f3f4;
+    border-bottom: 1px solid #ddd;
+}
+
+.icons i {
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.icons i:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Title styling */
+.title-div {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+}
+
+textarea.title {
+    width: 100%;
+    border: none;
+    resize: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    background: none;
+    outline: none;
+}
+
+/* Content styling */
+.content {
+    padding: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    min-height: 150px;
+    outline: none;
+    overflow-y: auto;
+}
+
+.content[contenteditable="true"] {
+    border: 1px solid transparent;
+    transition: border 0.2s ease;
+}
+
+.content[contenteditable="true"]:focus {
+    border: 1px solid #4285f4;
+    border-radius: 4px;
+}
+
+/* Format buttons */
+.format-buttons {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f1f3f4;
+    border-top: 1px solid #ddd;
+    justify-content: space-between;
+}
+
+button {
+    border: none;
+    background: #fff;
+    font-size: 14px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+button.bold,
+button.italic,
+button.underline,
+button.strikethrough,
+button.bullet {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Image upload button */
+.image-upload {
+    display: none;
+}
+
+button.image-upload-label {
+    padding: 5px 15px;
+    background-color: #4285f4;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+button.image-upload-label:hover {
+    background-color: #357ae8;
+}
+
+/* Ensure images are resizable and text wraps around them */
+.resizable {
+    resize: both;
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 100%;
+    cursor: se-resize;
+    margin: 10px 15px 10px 0; /* Margin to space out the images */
+    display: inline-block; /* To allow multiple images next to each other */
+}
+
+/* Clear float after image so text doesn’t overlap */
+.note .content:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* Optional: Style the note container */
+.note {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 15px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox layout for the note content */
+.content {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping for both text and images */
+    gap: 10px; /* Space between text and images */
+    justify-content: flex-start;
+}
+
+/* Style the title */
+.title-div {
+    margin-bottom: 10px;
+}
+
+/* Format buttons */
+.format-buttons {
+    margin-top: 10px;
+}
+
+.resizable:hover {
+    outline: 2px dashed #4285f4;
+}
+
+/* Scrollbar styling */
+.content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .note {
+        width: 100%;
+    }
+
+    .format-buttons {
+        flex-wrap: wrap;
+    }
+}
+
+.note img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px; /* Optional spacing */
+    position: relative; /* Ensure draggable functionality works */
+}
+
+#reminder-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+    width: 300px;
+}
+
+#reminder-popup h3 {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+#close-popup {
+    background-color: #ff3b3b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#close-popup:hover {
+    background-color: #d32f2f;
+}

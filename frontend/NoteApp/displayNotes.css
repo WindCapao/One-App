@@ -1,0 +1,406 @@
+/* General resets */
+body, html {  
+    margin: 0px;  
+    padding: 0;  
+    font-family: 'Poppins', sans-serif;  
+    min-height: 100vh;
+    display: flex;  /* Align the sidebar and main content horizontally */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 200px;
+    background-color: #F6E9E9;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 10px 10px 0;
+    position: fixed;
+    top: 0;
+    left: -200px; /* Initially hidden */
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+
+/* Sidebar open state */
+.sidebar.open {
+    left: 0; /* Reveal the sidebar */
+}
+
+/* Logo styling inside the sidebar */
+.logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Center the logo */
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    width: 100%;
+    padding: 20px;  /* Add more padding to make the logo area bigger */
+    background-color: transparent;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 20px;  /* Space between logo and navigation links */
+}
+
+.logo a img {
+    width: 100%;  /* Ensure the image scales properly */
+    max-width: 200px;  /* Set a max width for the logo image */
+    height: auto;  /* Maintain aspect ratio */
+    margin-left: -50px;
+}
+
+/* Navigation links container */
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Individual navigation link styling */
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for navigation links */
+nav a:hover {
+    background-color: #FF6B6B;
+    color: white;
+}
+
+/* Ensure icons turn white on hover */
+nav a:hover img {
+    filter: brightness(0) invert(1); /* Makes icons white on hover */
+    transition: filter 0.3s ease;
+}
+
+/* Adjustments for individual icon sizes */
+nav a.todo-link img.todo-icon {
+    height: 20px;
+}
+
+nav a.flashcards-link img.flashcards-icon {
+    height: 25px;
+}
+
+nav a.NoteApp-link img.NoteApp-icon {
+    height: 23px;
+}
+
+nav a.stopwatch-link img.stopwatch-icon {
+    height: 25px;
+}
+
+nav a.about-link img.about-icon {
+    height: 23px;
+}
+
+
+
+/* Toggle button styling */
+.toggle-btn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 20px;
+    right: -50px;
+    transition: right 0.3s ease, top 0.3s ease;
+}
+
+/* Adjust toggle button position when sidebar is open */
+.sidebar.open ~ #toggle-btn {
+    right: 20px;
+    top: 20px;
+}
+
+/* Adjust when sidebar is open */
+.sidebar.open ~ .homepage-content,
+.sidebar.open ~ .coming-soon-container {
+    left: 200px; /* Shift content to the right */
+    width: calc(100% - 200px); /* Adjust width */
+}
+
+/* Shared styles for headings and paragraphs */
+.homepage-content h1, 
+.coming-soon-container h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/*For profile*/
+.profile-pic-div{
+    height: 75px;
+    width: 75px;
+    position:absolute;
+    top:550px;
+    left:50px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow:hidden;
+    border: 1px solid grey;
+}
+
+
+#photo{
+    height: 100%;
+    width: 100%;
+}
+
+
+#file{
+    display:none;
+}
+
+#NAME{
+    position: absolute;
+    top:510px;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 100px;
+}
+
+
+#id{
+    position: absolute;
+    top:550px;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 100px;
+}
+
+/* General styles for the main container */
+#main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: transparent; /* Ensure no background */
+    min-height: 100vh;
+    justify-content: center; /* Center notes horizontally */
+    padding-top: 80px; /* Increased space on top for the notes */
+}
+
+#page-header {
+    position: absolute; /* Position the header absolutely on the page */
+    top: 10px; /* Add a margin from the top */
+    left: 70px; /* Add a margin from the left */
+    padding: 10px 20px 40px; /* Add padding (top, left/right, larger bottom) */
+    font-family: Arial, sans-serif; /* Optional: font styling */
+    color: #000; /* Black font color */
+    border-radius: 0; /* Remove rounded corners */
+    box-shadow: none; /* Remove shadow */
+    background-color: transparent; /* No background color */
+}
+
+
+/* Note card styling */
+.note {
+    background: #ffcccb; /* Pink background for the note */
+    border: 1px solid #ddd;
+    border-radius: 12px; /* Rounded corners for a smoother look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 220px; /* Fixed width for consistency */
+    height: 150px; /* Reduced height for a shorter note */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 60px; /* Increased margin-top to push notes lower */
+    left:20px;
+}
+
+.note:hover {
+    transform: translateY(-5px); /* Subtle hover effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Darker shadow on hover */
+}
+
+/* Icons (Save, Trash) */
+.icons {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 10px; /* Slightly more padding for better spacing */
+    gap: 6px; /* Increased gap between icons */
+    background-color: transparent; /* Ensure no background */
+    margin: 0; /* Remove any margin */
+}
+
+.icons i {
+    cursor: pointer;
+    font-size: 18px; /* Slightly bigger icons for better visibility */
+    padding: 6px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover transition */
+}
+
+.icons i:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scale(1.1); /* Slightly enlarge on hover for better feedback */
+}
+
+/* Title styling */
+.title-div {
+    padding: 5px 10px; /* Small padding for the title */
+    background-color: transparent; /* Remove background */
+    margin: 0; /* Remove any margin */
+    border-bottom: none; /* Remove the line between title and content */
+    margin-left: 30px; /* Add left margin to the title */
+}
+
+textarea.title {
+    width: 100%;
+    border: none;
+    resize: none;
+    font-size: 24px; /* Increased font size for the title */
+    font-weight: 600; /* Bold but not too heavy */
+    color: #333;
+    background: none;
+    outline: none;
+    margin: 0; /* Ensure no margin */
+    padding: 0; /* Remove padding */
+}
+
+/* Content styling */
+.content {
+    padding: 5px 10px; /* Reduced padding for a tighter look */
+    font-size: 15px; /* Slightly larger font size */
+    line-height: 1.5;
+    color: #444; /* Slightly darker text for better contrast */
+    min-height: 80px; /* Reduced content height to fit shorter box */
+    outline: none;
+    overflow-y: auto;
+    background-color: transparent; /* Ensure no background */
+    margin: 0; /* Removed top margin to bring content closer to title */
+    margin-left: 30px; /* Add left margin to the content */
+}
+
+/* Scrollbar styling */
+.content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .note {
+        width: 100%; /* Full width on smaller screens */
+        height: auto; /* Allow height to adjust based on content */
+    }
+}
+
+/* Improved typography for the page */
+body {
+    font-family: 'Arial', sans-serif; /* Modern font */
+    margin: 0;
+    padding: 0;
+    background-color: transparent; /* Remove any grey background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card content alignment */
+.note .content {
+    overflow-y: auto;
+}
+
+/* Active link style for sidebar */
+.sidebar nav a.active {
+    background-color: #f0f0f0; /* Example active link style */
+    color: #000; /* Active link color */
+}
+
+/* Add a subtle transition for sidebar elements */
+.sidebar nav a {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* Add Note Button */
+.btn {
+    position: fixed; /* Fixed position for floating button */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    z-index: 10; /* Ensure it is above other content */
+}
+
+#addBtn {
+    width: 60px; /* Button size */
+    height: 60px; /* Button size */
+    background-color: #ffcccb; /* Pink background */
+    border: none; /* Remove default border */
+    border-radius: 50%; /* Circular button */
+    display: flex;
+    justify-content: center; /* Center icon inside the button */
+    align-items: center;
+    font-size: 30px; /* Size of the plus icon */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Add shadow */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for the button */
+#addBtn:hover {
+    background-color: #ff9999; /* Darker pink when hovering */
+}
+
+/* Icon Styling */
+#addBtn i {
+    color: white; /* White color for the plus icon */
+}
+
+
+#reminder-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+    width: 300px;
+}
+
+#reminder-popup h3 {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+#close-popup {
+    background-color: #ff3b3b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#close-popup:hover {
+    background-color: #d32f2f;
+}

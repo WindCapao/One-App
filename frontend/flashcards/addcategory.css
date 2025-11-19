@@ -1,0 +1,443 @@
+/* General resets */
+body, html {  
+    margin: 0px;  
+    padding: 0;  
+    font-family: 'Poppins', sans-serif;  
+    min-height: 100vh;
+    display: flex;  /* Align the sidebar and main content horizontally */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 200px;
+    background-color: #F6E9E9;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 10px 10px 0;
+    position: fixed;
+    top: 0;
+    left: -200px; /* Initially hidden */
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+
+/* Sidebar open state */
+.sidebar.open {
+    left: 0; /* Reveal the sidebar */
+}
+
+/* Logo styling inside the sidebar */
+.logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Center the logo */
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    width: 100%;
+    padding: 20px;  /* Add more padding to make the logo area bigger */
+    background-color: transparent;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 20px;  /* Space between logo and navigation links */
+}
+
+.logo a img {
+    width: 100%;  /* Ensure the image scales properly */
+    max-width: 200px;  /* Set a max width for the logo image */
+    height: auto;  /* Maintain aspect ratio */
+    margin-left: -50px;
+}
+
+/* Navigation links container */
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Individual navigation link styling */
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for navigation links */
+nav a:hover {
+    background-color: #FF6B6B;
+    color: white;
+}
+
+/* Ensure icons turn white on hover */
+nav a:hover img {
+    filter: brightness(0) invert(1); /* Makes icons white on hover */
+    transition: filter 0.3s ease;
+}
+
+/* Adjustments for individual icon sizes */
+nav a.todo-link img.todo-icon {
+    height: 20px;
+}
+
+nav a.flashcards-link img.flashcards-icon {
+    height: 25px;
+}
+
+nav a.NoteApp-link img.NoteApp-icon {
+    height: 23px;
+}
+
+nav a.stopwatch-link img.stopwatch-icon {
+    height: 25px;
+}
+
+nav a.about-link img.about-icon {
+    height: 23px;
+}
+
+
+
+/* Toggle button styling */
+.toggle-btn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 20px;
+    right: -50px;
+    transition: right 0.3s ease, top 0.3s ease;
+}
+
+/* Adjust toggle button position when sidebar is open */
+.sidebar.open ~ #toggle-btn {
+    right: 20px;
+    top: 20px;
+}
+
+/* Main content styling (default: sidebar closed) */
+.homepage-content, 
+.coming-soon-container {
+    position: absolute;
+    top: 0;
+    left: 0; /* Fill the entire screen */
+    width: 100%; /* Full screen width */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f6d365, #fda085); /* Gradient background */
+    color: #fff;
+    text-align: center;
+    transition: left 0.3s ease, width 0.3s ease;
+}
+
+/* Adjust when sidebar is open */
+.sidebar.open ~ .homepage-content,
+.sidebar.open ~ .coming-soon-container {
+    left: 200px; /* Shift content to the right */
+    width: calc(100% - 200px); /* Adjust width */
+}
+
+/* Shared styles for headings and paragraphs */
+.homepage-content h1, 
+.coming-soon-container h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.homepage-content p, 
+.coming-soon-container p {
+    font-size: 1.5em;
+}
+
+/* Coming soon button */
+.coming-soon-btn {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #FF6B6B;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.coming-soon-btn:hover {
+    background-color: #FF4A4A;
+    transform: scale(1.1);
+}
+
+
+/*For profile*/
+.profile-pic-div{
+    height: 75px;
+    width: 75px;
+    position:absolute;
+    top:550px;
+    left:50px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow:hidden;
+    border: 1px solid grey;
+}
+
+
+#photo{
+    height: 100%;
+    width: 100%;
+}
+
+
+#file{
+    display:none;
+}
+
+
+#uploadBtn{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    line-height: 30px;;
+    font-family: sans-serif;
+    font-size: 15px;
+    cursor:pointer;
+    display: none;
+}
+
+
+#NAME{
+    position: absolute;
+    top:510px;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 100px;
+}
+
+
+#id{
+    position: absolute;
+    top:550px;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 100px;
+}
+
+
+/* Main content styling */
+.main {
+    margin-left: 250px;
+    padding: 20px;
+    color: #B36B6B;  /* Darker pink font color */
+}
+
+.main h1 {
+    font-size: 28px; /* Larger font for better visibility */
+    font-weight: bold; /* Bold for emphasis */
+    color: #B36B6B;  /* Darker pink for better readability */
+    margin-bottom: 20px;
+}
+
+/* Category Form Styling */
+#category-form {
+    background-color: #ffffff;
+    padding: 40px; /* Increased padding for better spacing */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#category-form h2 {
+    font-size: 26px; /* Bigger heading font */
+    font-weight: bold; /* Bold for better emphasis */
+    color: #B36B6B; /* Darker pink for headings */
+    margin-bottom: 25px;
+}
+
+#cat-form input,
+#cat-form textarea {
+    width: 100%;
+    padding: 14px;  /* Increased padding for larger input areas */
+    margin-bottom: 20px;
+    border: 2px solid #B36B6B; /* Darker pink border */
+    border-radius: 5px;
+    font-size: 18px;  /* Larger font size for input */
+    color: #B36B6B;  /* Darker pink text color */
+}
+
+/* Focus styling for inputs */
+#cat-form input:focus,
+#cat-form textarea:focus {
+    border-color: #D17878; /* Slightly lighter pink for focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(211, 120, 120, 0.8); /* Subtle glow effect */
+}
+
+/* Button styling */
+#cat-form button {
+    width: 100%;
+    padding: 16px;  /* Larger button */
+    background-color: #B36B6B;  /* Darker pink background for buttons */
+    border: none;
+    color: white;
+    font-size: 18px;  /* Larger font for button text */
+    font-weight: bold;  /* Bold text for buttons */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+#cat-form button:hover {
+    background-color: #D17878; /* Lighter pink shade when hovering */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+#cat-desc {
+    min-height: 120px; /* Slightly larger textarea */
+    resize: vertical;
+}
+
+/* Adjustments for font size, button visibility, and contrast */
+#cat-form input,
+#cat-form button,
+#cat-form textarea {
+    font-family: 'Poppins', sans-serif; /* Use the same font family for consistency */
+}
+
+#cat-form button:focus {
+    outline: none; /* Remove default outline when focused */
+}
+
+/* Back to Flashcards Button */
+#back-to-flashcards-btn button {
+    width: 100%;
+    padding: 16px;
+    background-color: #B36B6B;  /* Darker pink background */
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+    margin-top: 20px; /* Add some space above the button */
+}
+
+/* Hover effect */
+#back-to-flashcards-btn button:hover {
+    background-color: #D17878; /* Lighter pink shade when hovering */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Focus effect */
+#back-to-flashcards-btn button:focus {
+    outline: none; /* Remove default outline */
+}
+
+/* Back to Flashcards Button */
+#back-to-flashcards-btn button {
+    width: 100%;
+    padding: 16px;
+    background-color: #B36B6B;  /* Darker pink background */
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+    margin-top: 20px; /* Add some space above the button */
+}
+
+/* Hover effect */
+#back-to-flashcards-btn button:hover {
+    background-color: #D17878; /* Lighter pink shade when hovering */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Focus effect */
+#back-to-flashcards-btn button:focus {
+    outline: none; /* Remove default outline */
+}
+
+
+/* Profile Image Upload Styling */
+#uploadBtn {
+    background-color: #B36B6B;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#uploadBtn:hover {
+    background-color: #D17878; /* Lighter pink when hovering */
+}
+
+.profile-pic-div {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-pic-div img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+#reminder-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+    width: 300px;
+}
+
+#reminder-popup h3 {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+#close-popup {
+    background-color: #ff3b3b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#close-popup:hover {
+    background-color: #d32f2f;
+}

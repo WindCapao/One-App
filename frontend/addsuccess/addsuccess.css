@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fce9e9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Adjust the task added image */
+.task-image {
+    width: 600px; /* Adjust as needed */
+    height: auto;
+    margin-bottom: 60px;
+    position: absolute;
+    right: 350px;
+    top: 190px;
+}
+
+/* Adjust the message icon */
+.message-icon {
+    width: 400px; /* Adjust as needed */
+    height: auto;
+    margin-bottom: 40px;
+}
+
+/* Style for the back button container */
+.back-btn-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style for the back link button */
+a {
+    text-decoration: none;
+    background-color: #f96e6e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px; /* Softened rounded edges */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for the button */
+a:hover {
+    background-color: #e65c5c; /* Change color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Active effect for the button when clicked */
+a:active {
+    background-color: #ff6347; /* Revert to original color */
+}
+
+/* Icon inside the button */
+a img {
+    width: 60px; /* Adjust the icon size */
+    height: auto;
+    margin-left: 5px; /* Space between text and icon */
+    transition: filter 0.2s ease; /* Smooth icon transition */
+}
+
+/* Icon effect on button click */
+a:active img {
+    filter: brightness(0) invert(1); /* Turn icon white when clicked */
+}

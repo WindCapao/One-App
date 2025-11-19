@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneApp - Flashcards</title>
+    <link rel="stylesheet" href="displayFC.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <a href="../main/index.html">
+                <img src="images/oneapp-logo.png" alt="OneApp Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="../To-do-list/to-do-list.html" class="todo-link">
+                <img src="images/todo-icon.png" alt="To-Do Icon" class="todo-icon">
+            </a>
+            <a href="../flashcards/flashcards.html" class="flashcards-link">
+                <img src="images/flashcards-icon.png" alt="Flashcards Icon" class="flashcards-icon">
+            </a>
+            <a href="../NoteApp/displayNotes.html" class="NoteApp-link"> 
+                <img src="images/Note App logo.png" alt="NoteApp Icon" class="NoteApp-icon">
+            </a>
+            <a href="../stopwatch/stopwatch.html" class="stopwatch-link">
+                <img src="images/Clock APP logo.png" alt="stopwatch Icon" class="stopwatch-icon">
+            </a>
+            <a href="../about-page/about-page.html" class="about-link">
+                <img src="images/about-icon.png" alt="About Icon" class="about-icon">
+            </a> 
+        </nav>
+                <!-- Profile link inside the navigation -->
+                <a href="../profile/profile.html" class="profile-link">
+                    <div class="profile-pic-div">
+                        <img src="images/logo.png" id="photo" alt="Profile Picture">
+                    </div>
+                    <p id="NAME">Test name</p>
+                    <p id="id">ID:</p>
+                </a>
+        
+        <img src="images/logo.png" alt="Toggle Sidebar" id="toggle-btn" class="toggle-btn"> 
+    </div>
+
+    <div class="flashcards-container" id="flashcard-container">
+        <h2>Flashcards</h2>
+
+        <div id="buttons-container">
+            <button id="back-btn">Back</button>
+            <button id="add-flashcard-btn">
+                <span class="plus-sign">+</span>
+            </button>
+        </div>
+
+        <!-- Flashcards will be inserted here dynamically -->
+        <div id="flashcards-list"></div>
+
+        <!-- Message for no flashcards -->
+        <div id="no-flashcards-message" style="display:none;">
+            <p>No flashcards available for this category.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="reminder-msg" style="display:none;"></div>
+
+        <!-- Reminder Popup -->
+        <div id="reminder-popup">
+            <h3>Reminder Triggered!</h3>
+            <p>Your reminder time has come!</p>
+            <button id="close-popup">Close</button>
+        </div>
+    </div>
+
+
+    <script src="displayFC.js"></script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+/* General resets */
+body, html {  
+    margin: 0px;  
+    padding: 0;  
+    font-family: 'Poppins', sans-serif;  
+    min-height: 100vh;
+    display: flex;  /* Align the sidebar and main content horizontally */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 200px;
+    background-color: #F6E9E9;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 10px 10px 0;
+    position: fixed;
+    top: 0;
+    left: -200px; /* Initially hidden */
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+
+/* Sidebar open state */
+.sidebar.open {
+    left: 0; /* Reveal the sidebar */
+}
+
+/* Logo styling inside the sidebar */
+.logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Center the logo */
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    width: 100%;
+    padding: 20px;  /* Add more padding to make the logo area bigger */
+    background-color: transparent;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 20px;  /* Space between logo and navigation links */
+}
+
+.logo a img {
+    width: 100%;  /* Ensure the image scales properly */
+    max-width: 200px;  /* Set a max width for the logo image */
+    height: auto;  /* Maintain aspect ratio */
+    margin-left: -50px;
+}
+
+/* Navigation links container */
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Individual navigation link styling */
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #FF6B6B;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for navigation links */
+nav a:hover {
+    background-color: #FF6B6B;
+    color: white;
+}
+
+/* Ensure icons turn white on hover */
+nav a:hover img {
+    filter: brightness(0) invert(1); /* Makes icons white on hover */
+    transition: filter 0.3s ease;
+}
+
+/* Adjustments for individual icon sizes */
+nav a.todo-link img.todo-icon {
+    height: 20px;
+}
+
+nav a.flashcards-link img.flashcards-icon {
+    height: 25px;
+}
+
+nav a.NoteApp-link img.NoteApp-icon {
+    height: 23px;
+}
+
+nav a.stopwatch-link img.stopwatch-icon {
+    height: 25px;
+}
+
+nav a.about-link img.about-icon {
+    height: 23px;
+}
+
+
+
+/* Toggle button styling */
+.toggle-btn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 20px;
+    right: -50px;
+    transition: right 0.3s ease, top 0.3s ease;
+}
+
+/* Adjust toggle button position when sidebar is open */
+.sidebar.open ~ #toggle-btn {
+    right: 20px;
+    top: 20px;
+}
+
+/*For profile*/
+.profile-pic-div{
+    height: 75px;
+    width: 75px;
+    position:absolute;
+    top:550px;
+    left:50px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow:hidden;
+    border: 1px solid grey;
+}
+
+
+#photo{
+    height: 100%;
+    width: 100%;
+}
+
+
+#file{
+    display:none;
+}
+
+
+#uploadBtn{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    line-height: 30px;;
+    font-family: sans-serif;
+    font-size: 15px;
+    cursor:pointer;
+    display: none;
+}
+
+
+#NAME{
+    position: absolute;
+    top:510px;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 100px;
+}
+
+
+#id{
+    position: absolute;
+    top:550px;
+    font-size: 15px;
+    font-family: sans-serif;
+    left: 100px;
+}
+/* CSS for No Flashcards Message */
+#no-flashcards-message {
+    display: none; /* Initially hidden */
+    color: #ff1493; /* Pink text color */
+    font-weight: bold; /* Make text bold */
+    padding: 20px; /* Add padding for spacing around the text */
+    font-size: 16px; /* Text size */
+    text-align: center; /* Center the text */
+    transition: opacity 0.3s ease-in-out; /* Smooth fade-in effect */
+}
+
+/* Centering the message on the screen */
+#no-flashcards-message {
+    position: fixed; /* Fixed positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Fine-tune positioning */
+}
+
+/* Optional Hover Effect */
+#no-flashcards-message:hover {
+    color: #dc6464; /* Lighter pink when hovered */
+}
+
+/* Style the text inside the Flashcards container */
+#flashcard-container h2 {
+    position: fixed; /* Keep it fixed at the top */
+    top: 20px; /* Place it 20px from the top */
+    left: 80px; /* Move it 60px from the left */
+    font-size: 32px; /* Increase font size */
+    font-weight: bold; /* Make the text bold */
+    color: #dc6464; /* Make the text color darker (red shade) */
+    margin: 0; /* Remove any default margin */
+    padding: 10px; /* Add padding to prevent overlap */
+}
+
+/* Position the edit and delete buttons at the top-right */
+.flashcard-buttons {
+    position: absolute; /* Position buttons absolutely inside the flashcard */
+    top: 10px;
+    right: 10px; /* Adjust to place buttons at the top-right */
+    display: flex; /* Align buttons horizontally */
+    gap: 5px; /* Add spacing between the buttons */
+}
+
+.flashcard-buttons button {
+    background-color: #f98787; /* Same background color as the flashcard */
+    border: 1px solid #fff; /* Subtle border matching the flashcard style */
+    border-radius: 5px; /* Rounded corners for buttons */
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+.flashcard-buttons button:hover {
+    background-color: #f66f6f; /* Slightly darker shade on hover */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.flashcard-buttons img {
+    width: 18px; /* Slightly smaller icons */
+    height: 18px;
+    filter: brightness(0) invert(1); /* Make icons white for contrast */
+}
+
+/* Flashcard Item (Individual Flashcard) */
+.flashcard-item {
+    position: relative; /* Necessary for positioning the icons */
+    margin: 0; /* Remove margin between flashcards */
+    padding: 8px; /* Further reduced padding for a smaller flashcard */
+    background-color: #FFC0CB;
+    font-size: 16px; /* Keep the font size the same */
+    min-height: 110px; /* Reduced minimum height for a more compact flashcard */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Keep content aligned to the top */
+    width: 100%; /* Full width within the container */
+    max-width: 320px; /* Maintained maximum width */
+    box-sizing: border-box;
+    border-radius: 8px; /* Rounded corners for the flashcard */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for shadow and scale */
+    left: 60px; /* 60px left offset */
+}
+
+/* Space between question and answer */
+.flashcard-item .question {
+    margin-bottom: 8px; /* Add some space below the question */
+    font-size: 20px; /* Make the question text larger */
+    font-weight: normal; /* Make question text non-bold */
+}
+
+.flashcard-item .answer {
+    margin-top: 4px; /* Optional: Add a small margin on top of the answer */
+    font-weight: normal; /* Remove bold text from the answer */
+    font-size: 16px; /* Regular size for the answer */
+}
+
+/* Flashcard Item Hover Effect */
+.flashcard-item:hover {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+    transform: translateY(-5px); /* Slight upward movement on hover */
+}
+
+/* Flashcards List - Create a grid layout for the flashcards */
+#flashcards-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Flexible grid for larger flashcards */
+    gap: 20px; /* Add some space between the flashcards */
+    margin-top: 20px; /* Increased top margin */
+    padding: 0; /* Ensure no extra padding around the grid */
+}
+
+/* Container for both buttons */
+#buttons-container {
+    position: fixed; /* Fix the container to the screen */
+    bottom: 20px; /* Place it 20px from the bottom */
+    right: 20px; /* Place it 20px from the right */
+    display: flex; /* Use flexbox to arrange buttons side by side */
+    gap: 10px; /* Space between the buttons */
+}
+
+/* Back Button */
+#back-btn {
+    padding: 8px 12px; /* Slightly smaller button */
+    background-color: #f98787; /* Same background color as Add Flashcard button */
+    color: #fff;
+    border: none; /* Remove the border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#back-btn:hover {
+    background-color: #f66f6f; /* Darker shade on hover, similar to Add Flashcard button */
+}
+
+/* Style the Add Flashcard button */
+#add-flashcard-btn {
+    background-color: #f98787; /* Set background color */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    border-radius: 50%; /* Make the button round */
+    width: 60px; /* Set the width */
+    height: 60px; /* Set the height */
+    font-size: 30px; /* Make the font size large */
+    display: flex; /* Use flex to align the plus sign inside the button */
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    cursor: pointer; /* Show a pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+#add-flashcard-btn:hover {
+    background-color: #f66f6f; /* Darker shade on hover */
+}
+
+.plus-sign {
+    font-size: 36px; /* Make the plus sign larger */
+    font-weight: bold; /* Make it bold */
+    margin-top: 5px; /* Add a slight margin if necessary to center */
+}
+
+
+/* Responsive Design for Flashcards */
+@media (max-width: 768px) {
+    .flashcard-item {
+        padding: 10px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Adjust font size for smaller screens */
+        left: 0; /* Remove offset for smaller screens */
+    }
+
+    #flashcards-list {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* Adjust grid layout for smaller screens */
+    }
+}
+
+#reminder-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+    width: 300px;
+}
+
+#reminder-popup h3 {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+#close-popup {
+    background-color: #ff3b3b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#close-popup:hover {
+    background-color: #d32f2f;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO PAGE</title>
+    <link rel="stylesheet" href="addclasses.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <a href="../main/index.html">
+                <img src="images/oneapp-logo.png" alt="OneApp Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="../To-do-list/to-do-list.html" class="todo-link">
+                <img src="images/todo-icon.png" alt="To-Do Icon" class="todo-icon">
+            </a>
+            <a href="../flashcards/flashcards.html" class="flashcards-link">
+                <img src="images/flashcards-icon.png" alt="Flashcards Icon" class="flashcards-icon">
+            </a>
+            <a href="/about-page/about-page.html" class="about-link">
+                <img src="images/about-icon.png" alt="About Icon" class="about-icon">
+            </a>
+            <div class="profile-pic-div">
+                <img src="/main/images/logo.png" id="photo">
+                <input type="file" id="file">
+                <label for="file" id="uploadBtn">Choose Photo</label>
+            </div>
+            <p id="NAME">Test name</p>
+            <p id="id">ID:</p>
+        </nav>
+        <img src="images/logo.png" alt="Toggle Sidebar" id="toggle-btn" class="toggle-btn"> 
+    </div>
+    
+    <!-- Content Section -->
+    <div id="content">
+            <!-- Wrapper to center the form -->
+            <div class="form-container">
+                <form id="classForm">
+                    <div>
+                        <label for="className">Class Name</label>
+                        <input type="text" id="className" name="className" required>
+                    </div>
+                    <div>
+                        <label for="schedule">Schedule</label>
+                        <input type="text" id="schedule" name="schedule" required>
+                    </div>
+                    <div>
+                        <label for="classLink">Class Link</label>
+                        <input type="url" id="classLink" name="classLink" required>
+                    </div>
+                    <button type="submit">Add Class</button>
+                </form>
+                            </div>
+        </div>
+    </div>
+
+    <script src="addclasses.js"></script>
+</body>
+</html>

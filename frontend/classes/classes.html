@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes - OneApp</title>
+    <link rel="stylesheet" href="classes.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <a href="../main/index.html">
+                <img src="images/oneapp-logo.png" alt="OneApp Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="../To-do-list/to-do-list.html" class="todo-link">
+                <img src="images/todo-icon.png" alt="To-Do Icon" class="todo-icon">
+            </a>
+            <a href="../flashcards/flashcards.html" class="flashcards-link">
+                <img src="images/flashcards-icon.png" alt="Flashcards Icon" class="flashcards-icon">
+            </a>
+            <a href="/about-page/about-page.html" class="about-link">
+                <img src="images/about-icon.png" alt="About Icon" class="about-icon">
+            </a>
+            <a href="../classes/classes.html" class="classes-link">
+                Classes
+            </a> 
+
+        </nav>
+                <!-- Profile link inside the navigation -->
+                <a href="../profile/profile.html" class="profile-link">
+                    <div class="profile-pic-div">
+                        <img src="/frontend/images/logo.png" id="photo" alt="Profile Picture">
+                    </div>
+                    <p id="NAME">Test name</p>
+                    <p id="id">ID:</p>
+                </a>
+        
+        <img src="images/logo.png" alt="Toggle Sidebar" id="toggle-btn" class="toggle-btn"> 
+    </div>
+
+    <div class="classes-content">
+        <h1>My Classes</h1>
+        <div id="classes-list">
+            <!-- Classes will be displayed here -->
+        </div>
+        <button id="add-class-btn" onclick="addClass()"><a href="addclasses.html">
+            Add Class</button>
+    </div>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="classes.js"></script>
+</body>
+</html>
